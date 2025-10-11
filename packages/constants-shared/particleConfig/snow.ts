@@ -1,29 +1,29 @@
 export default {
 	alpha: {
 		start: 1,
-		end: 0.34,
+		end: 0.84,
 	},
 	scale: {
-		start: 0.1,
-		end: 0.35,
-		minimumScaleMultiplier: 0.1,
+		start: 0.3,
+		end: 2.65,
+		minimumScaleMultiplier: 0.3,
 	},
 	color: {
-		start: '#ffffff',
-		end: '#ffffff',
+		start: '#00ff00',
+		end: '#00ff00ff',
 	},
 	speed: {
-		start: 0,
-		end: 1,
+		start: 5,
+		end: 5,
 		minimumSpeedMultiplier: 1,
 	},
 	acceleration: {
-		x: 0,
-		y: 3,
+		x: 1,
+		y: 17,
 	},
 	maxSpeed: 0,
 	startRotation: {
-		min: 0,
+		min: 12,
 		max: 0,
 	},
 	noRotation: false,
@@ -32,13 +32,13 @@ export default {
 		max: 100,
 	},
 	lifetime: {
-		min: 21,
-		max: 40,
+		min: 40,
+		max: 140,
 	},
-	blendMode: 'screen',
+	blendMode: 'add',
 	frequency: 0.4,
 	emitterLifetime: -1,
-	maxParticles: 50,
+	maxParticles: 400,
 	pos: {
 		x: 0,
 		y: 0,

@@ -1,4 +1,5 @@
 <script lang="ts">
+import FrameDisplay from '../framedisplay.svelte';
 	import { SpineProvider, SpineTrack, Container, Sprite } from 'pixi-svelte';
 	import { FadeContainer, LoadingProgress } from 'components-pixi';
 	import { MainContainer } from 'components-layout';
@@ -16,6 +17,9 @@
 
 	let loadingType = $state<'start' | 'transition'>('start');
 </script>
+
+
+
 
 <!-- logo and loading progress -->
 <FadeContainer show={loadingType === 'start'}>

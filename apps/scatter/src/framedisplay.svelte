@@ -6,6 +6,7 @@
   export let width: number = 200;
   export let height: number = 250;
   export let fps: number = 24;
+  export let scale: number = 3;
 
   import { Sprite } from 'pixi-svelte';
   import { onDestroy } from 'svelte';
@@ -65,6 +66,7 @@
     y={y}
     width={width}
     height={height}
+    scale={scale}
   />
 {:else}
   <div>No frame to display</div>

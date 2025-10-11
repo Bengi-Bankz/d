@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Container, ParticleEmitter } from 'pixi-svelte';
 	import { MainContainer } from 'components-layout';
-	import { fountain as baseConfig } from 'constants-shared/particleConfig';
+	import { snow as baseConfig } from 'constants-shared/particleConfig';
 	import { LEVEL_PARTICLE_COIN_MAP } from 'constants-shared/particleCoin';
 
 	import { getContext } from '../game/context';
@@ -24,7 +24,7 @@
 	<MainContainer>
 		<Container
 			x={context.stateGameDerived.boardLayout().x}
-			y={context.stateGameDerived.boardLayout().y}
+			y={0}
 		>
 			<ParticleEmitter {config} key="coins" emit={props.emit} />
 		</Container>

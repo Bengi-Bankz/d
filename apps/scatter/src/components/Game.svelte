@@ -92,8 +92,8 @@
 			fps={24}
 			x={900}
 			y={375}
-			width={200}
-			height={250}
+			width={400}
+			height={500}
 		/>
 
 		<UI>
