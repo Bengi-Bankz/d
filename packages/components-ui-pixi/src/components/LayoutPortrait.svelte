@@ -1,133 +1,89 @@
 <script lang="ts">
-	import { Tween } from 'svelte/motion';
-	import { cubicInOut } from 'svelte/easing';
-
 	import { stateUi } from 'state-shared';
 	import { BLACK } from 'constants-shared/colors';
-	import { FadeContainer } from 'components-pixi';
 	import { MainContainer } from 'components-layout';
 	import { Container, Rectangle } from 'pixi-svelte';
-	import { waitForResolve } from 'utils-shared/wait';
 
+	import UiSprite from './UiSprite.svelte';
 	import LabelFreeSpinCounter from './LabelFreeSpinCounter.svelte';
-	import ButtonDrawer from './ButtonDrawer.svelte';
 	import type { LayoutUiProps } from '../types';
 	import { getContext } from '../context';
 
 	const props: LayoutUiProps = $props();
 	const context = getContext();
-
-	const DRAWER_Y = {
-		unfold: 0,
-		fold: 550,
-	};
-	const drawerTween = new Tween(stateUi.drawerFold ? DRAWER_Y.fold : DRAWER_Y.unfold, {
-		easing: cubicInOut,
-	});
-
-	const DRAWER_BUTTON_Y = {
-		unfold: 0,
-		fold: 50,
-	};
-	const drawerButtonTween = new Tween(
-		stateUi.drawerFold ? DRAWER_BUTTON_Y.fold : DRAWER_BUTTON_Y.unfold,
-		{
-			easing: cubicInOut,
-		},
-	);
-
-	let drawerButtonFadeComplete = $state(() => {});
-
-	context.eventEmitter.subscribeOnMount({
-		drawerButtonShow: async () => {
-			if (!stateUi.drawerButtonShow) {
-				stateUi.drawerButtonShow = true;
-				await waitForResolve((resolve) => (drawerButtonFadeComplete = resolve));
-			}
-		},
-		drawerButtonHide: async () => {
-			if (stateUi.drawerButtonShow) {
-				stateUi.drawerButtonShow = false;
-				await waitForResolve((resolve) => (drawerButtonFadeComplete = resolve));
-			}
-		},
-		drawerUnfold: async () => {
-			if (stateUi.drawerFold) {
-				drawerButtonTween.set(DRAWER_BUTTON_Y.unfold);
-				await drawerTween.set(DRAWER_Y.unfold);
-			}
-		},
-		drawerFold: async () => {
-			if (!stateUi.drawerFold) {
-				drawerButtonTween.set(DRAWER_BUTTON_Y.fold);
-				await drawerTween.set(DRAWER_Y.fold);
-			}
-		},
-	});
 </script>
 
-<Container x={20}>
+<Container x={20} scale={0.8}>
 	{@render props.gameName()}
 </Container>
 
-<Container x={context.stateLayoutDerived.canvasSizes().width - 20}>
-	{@render props.logo()}
+<MainContainer standard alignVertical="bottom">
+	<Container
+    x={context.stateLayoutDerived.canvasSizes().width - 160}
+    y={1350}
+    scale={1.2}
+>
+    {@render props.amountBalance({ stacked: true })}
 </Container>
 
-<MainContainer standard alignVertical="bottom">
-	<!-- drawer container -->
-	<Container y={drawerTween.current}>
-		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5 - 440}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - 400}
-		>
-			{@render props.buttonMenu({ anchor: 0.5 })}
-		</Container>
-
-		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5 + 440}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - 400}
-		>
-			{@render props.buttonBuyBonus({ anchor: 0.5 })}
-		</Container>
-
-		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - 400}
-		>
-			{@render props.buttonBet({ anchor: 0.5 })}
-		</Container>
-
-		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5 - 180}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - 400}
-		>
-			{@render props.buttonAutoSpin({ anchor: 0.5 })}
-		</Container>
-
-		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5 + 180}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - 400}
-		>
-			{@render props.buttonTurbo({ anchor: 0.5 })}
-		</Container>
-
-		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - 270}
-		>
-			{@render props.amountBalance({ stacked: true })}
-		</Container>
+	<!-- Full-width background behind all UI buttons -->
+	<UiSprite
+		x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5}
+		y={context.stateLayoutDerived.mainLayoutStandard().height - 200}
+		width={context.stateLayoutDerived.mainLayoutStandard().width}
+		height={300}
+		anchor={0.5}
+		variant="dark"
+		state="normal"
+		borderRadius={12}
+		showBorder={true}
+		showShadow={false}
+		borderColor="#2563eb"
+		borderWidth={2}
+		backgroundColor="#000000"
+		zIndex={-1}
+	/>
+	
+	<Container
+		x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5 - 440}
+		y={context.stateLayoutDerived.mainLayoutStandard().height - 160}
+	>
+		{@render props.buttonMenu({ anchor: 0.5 })}
 	</Container>
 
-	<Container y={Math.min(drawerTween.current, 350)}>
-		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - 670}
-		>
-			{@render props.amountWin({ stacked: true })}
-		</Container>
+	<Container
+		x={context.stateLayoutDerived.mainLayoutStandard().width * -.15 + 440}
+		y={context.stateLayoutDerived.mainLayoutStandard().height - 160}
+	>
+		{@render props.buttonBuyBonus({ anchor: 0.5 })}
 	</Container>
+
+	<Container
+		x={context.stateLayoutDerived.mainLayoutStandard().width * 0.81}
+		y={context.stateLayoutDerived.mainLayoutStandard().height - 160}
+		scale={1.5}
+	>
+		{@render props.buttonBet({ anchor: 0.5 })}
+	</Container>
+
+<Container
+    x={context.stateLayoutDerived.mainLayoutStandard().width * 0.38 + 8}
+    y={context.stateLayoutDerived.mainLayoutStandard().height - 197}
+    scale={1}
+>
+    {@render props.buttonAutoSpin({ anchor: 0.25 })}
+</Container>
+
+<Container
+    x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5 + 2}
+    y={context.stateLayoutDerived.mainLayoutStandard().height - 270}
+    scale={1}  
+>
+    {@render props.buttonTurbo({ anchor: -.25 })}
+</Container>
+
+
+
 </MainContainer>
 
 <MainContainer standard alignVertical="bottom">
@@ -140,41 +96,29 @@
 		</Container>
 	{:else}
 		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - 130}
+			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.7}
+			y={context.stateLayoutDerived.mainLayoutStandard().height - 525}
 		>
 			{@render props.amountBet({ stacked: true })}
 		</Container>
 
-		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5 - 390}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - 85}
-		>
-			{@render props.buttonDecrease({ anchor: 0.5 })}
-		</Container>
+<Container
+    x={context.stateLayoutDerived.mainLayoutStandard().width * 0.96 }
+    y={context.stateLayoutDerived.mainLayoutStandard().height - 105}
+    scale={0.45}  
+>
+    {@render props.buttonDecrease({ anchor: 0.5 })}
+</Container>
 
-		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5 + 390}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - 85}
-		>
-			{@render props.buttonIncrease({ anchor: 0.5 })}
-		</Container>
+<Container
+    x={context.stateLayoutDerived.mainLayoutStandard().width * 0.96}
+    y={context.stateLayoutDerived.mainLayoutStandard().height - 185}
+    scale={0.45}
+>
+    {@render props.buttonIncrease({ anchor: 0.5 })}
+</Container>
 	{/if}
 
-	<!-- drawer button -->
-	<FadeContainer
-		persistent
-		show={stateUi.drawerButtonShow}
-		oncomplete={drawerButtonFadeComplete}
-		y={drawerButtonTween.current}
-	>
-		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5 + 440}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - 105}
-		>
-			<ButtonDrawer disabled={!stateUi.drawerButtonShow} anchor={0.5} />
-		</Container>
-	</FadeContainer>
 </MainContainer>
 
 {#if stateUi.menuOpen}
@@ -193,8 +137,8 @@
 
 	<MainContainer standard alignVertical="bottom">
 		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5 - 440}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - 400}
+			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5 - 350}
+			y={context.stateLayoutDerived.mainLayoutStandard().height - 110}
 		>
 			<Container y={-190 - 210 * 3}>
 				{@render props.buttonPayTable({ anchor: 0.5 })}

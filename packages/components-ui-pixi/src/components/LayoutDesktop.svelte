@@ -4,6 +4,7 @@
 	import { MainContainer } from 'components-layout';
 	import { Container, Rectangle, anchorToPivot } from 'pixi-svelte';
 
+	import UiSprite from './UiSprite.svelte';
 	import { DESKTOP_BASE_SIZE, DESKTOP_BACKGROUND_WIDTH_LIST } from '../constants';
 	import { getContext } from '../context';
 	import type { LayoutUiProps } from '../types';
@@ -12,13 +13,14 @@
 	const context = getContext();
 </script>
 
-<Container x={20}>
+<Container x={20} y={80}>
 	{@render props.gameName()}
 </Container>
 
-<Container x={context.stateLayoutDerived.canvasSizes().width - 20}>
+<Container x={context.stateLayoutDerived.canvasSizes().width - 20} y={20} scale={0.4}>
 	{@render props.logo()}
 </Container>
+
 
 <MainContainer standard alignVertical="bottom">
 	<Container
@@ -32,46 +34,61 @@
 			},
 		})}
 	>
-		<Container y={DESKTOP_BASE_SIZE * 0.5 - 160} x={900 - 500} scale={0.8}>
+
+<UiSprite
+	width={DESKTOP_BACKGROUND_WIDTH_LIST.reduce((sum, width) => sum + width, 0)}
+	height={DESKTOP_BASE_SIZE}
+	x={-DESKTOP_BACKGROUND_WIDTH_LIST.reduce((sum, width) => sum + width, 0) * -0}
+	y={0}
+	variant="dark"
+	state="normal"
+	borderRadius={12}
+	showBorder={true}
+	showShadow={false}
+	borderColor="#2563eb"
+	borderWidth={2}
+	backgroundColor="#000000"
+/>
+
+<Container y={DESKTOP_BASE_SIZE * 0.5 - 50} x={840 - 545} scale={.8}>
 			{@render props.amountBalance({ stacked: true })}
 		</Container>
 
-		<Container y={DESKTOP_BASE_SIZE * 0.5 - 160} x={900} scale={0.8}>
-			{@render props.amountWin({ stacked: true })}
-		</Container>
 
-		<Container y={DESKTOP_BASE_SIZE * 0.5 - 160} x={900 + 500} scale={0.8}>
+		<Container y={DESKTOP_BASE_SIZE * .25} x={380 + 520} scale={0.7}>
 			{@render props.amountBet({ stacked: true })}
 		</Container>
-
-		<Container y={DESKTOP_BASE_SIZE * 0.5} x={220} scale={0.8}>
+		<Container y={DESKTOP_BASE_SIZE * 0.5} x={90} scale={0.7}>
 			{@render props.buttonMenu({ anchor: 0.5 })}
 		</Container>
 
-		<Container y={DESKTOP_BASE_SIZE * 0.5} x={220 + 150} scale={0.8}>
+		<Container y={DESKTOP_BASE_SIZE * 0.5} x={80 + 1200} scale={0.7}>
 			{@render props.buttonBuyBonus({ anchor: 0.5 })}
 		</Container>
 
-		<Container y={DESKTOP_BASE_SIZE * 0.5} x={160 + 150 * 4} scale={0.8}>
-			{@render props.buttonAutoSpin({ anchor: 0.5 })}
-		</Container>
 
-		<Container y={DESKTOP_BASE_SIZE * 0.5} x={160 + 150 * 5} scale={0.8}>
+		<Container y={DESKTOP_BASE_SIZE * 0.5} x={820 + 150 * 5} scale={1.1}>
 			{@render props.buttonBet({ anchor: 0.5 })}
 		</Container>
 
-		<Container y={DESKTOP_BASE_SIZE * 0.5} x={160 + 150 * 6} scale={0.8}>
+		
+		<Container y={DESKTOP_BASE_SIZE * 0.25} x={820 + 120 * 5} scale={0.35}>
+			{@render props.buttonAutoSpin({ anchor: 0.5 })}
+		</Container>
+
+		<Container y={DESKTOP_BASE_SIZE * 0.75}  x={820 + 120 * 5} scale={0.35}>
 			{@render props.buttonTurbo({ anchor: 0.5 })}
 		</Container>
 
-		<Container y={DESKTOP_BASE_SIZE * 0.5} x={1440} scale={0.8}>
+		<Container y={DESKTOP_BASE_SIZE * 0.75} x={1700} scale={0.35}>
 			{@render props.buttonDecrease({ anchor: 0.5 })}
 		</Container>
 
-		<Container y={DESKTOP_BASE_SIZE * 0.5} x={1440 + 150} scale={0.8}>
+		<Container y={DESKTOP_BASE_SIZE * 0.25} x={1700} scale={0.35}>
 			{@render props.buttonIncrease({ anchor: 0.5 })}
 		</Container>
 	</Container>
+	
 </MainContainer>
 
 {#if stateUi.menuOpen}

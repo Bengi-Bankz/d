@@ -1,7 +1,7 @@
 const DEFAULT_BET_MODE_META = {
 	BASE: {
 		mode: 'BASE',
-		costMultiplier: 1.0,
+		costMultiplier: 1,
 		type: 'default',
 		parent: '',
 		children: '',
@@ -13,106 +13,19 @@ const DEFAULT_BET_MODE_META = {
 			button: '',
 		},
 		text: {
-			title: '',
-			dialog: '',
-			button: '',
+			title: 'BASE GAME',
+			dialog: 'Standard gameplay with natural scatter triggers.',
+			button: 'SPIN',
 			betAmountLabel: '',
-			tickerIdle: '',
-			tickerSpin: '',
+			tickerIdle: 'PLACE YOUR BET',
+			tickerSpin: 'SPINNING...',
 			bannerText: '',
 		},
 		maxWin: 8888,
 	},
-	ANTE: {
-		mode: 'ANTE',
-		costMultiplier: 1.2,
-		type: 'activate',
-		parent: '',
-		children: '',
-		assets: {
-			icon: 'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_9_97/betModes/icon_doubleboost.webp',
-			dialogImage:
-				'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_9_97/betModes/doubleboost_image.webp',
-			dialogVolatility:
-				'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_9_97/betModes/volatility/volatility_01.webp',
-			volatility:
-				'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_9_97/betModes/volatility/volatility_white_01.webp',
-			button:
-				'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_9_97/betModes/button_activate.webp',
-			bannerText: 'example banner text',
-		},
-		text: {
-			title: 'DOUBLE BOOST',
-			dialog:
-				'Double the chance to trigger the FREE SPINS round when activated for 1.2x the player bet amount. DOUBLE BOOST remains active until disabled by the player.',
-			description: 'Greatly increase your chance of landing a bonus symbol each spin.',
-			button: 'ACTIVATE',
-			betAmountLabel: 'DOUBLE BOOST',
-			tickerIdle: 'DOUBLE BOOST IS ACTIVE',
-			tickerSpin: 'GOOD LUCK',
-			bannerText: 'example banner text',
-		},
-	},
-	SUPERANTE: {
-		mode: 'SUPERANTE',
-		costMultiplier: 5,
-		type: 'activate',
-		parent: '',
-		children: '',
-		assets: {
-			icon: 'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_9_97/betModes/icon_superboost.webp',
-			dialogImage:
-				'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_9_97/betModes/superboost_image.webp',
-			dialogVolatility:
-				'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_9_97/betModes/volatility/volatility_02.webp',
-			volatility:
-				'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_9_97/betModes/volatility/volatility_white_02.webp',
-			button:
-				'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_9_97/betModes/button_activate.webp',
-		},
-		text: {
-			title: 'SUPER BOOST',
-			dialog:
-				'1 in 20 chance to trigger the FREE SPINS round when activated for 5x the player bet amount. Guarantees 1 or more Scatter symbols every spin. SUPER BOOST remains active until disabled by the player.',
-			description: 'Guaranteed to land at least 1+ bonus symbol each spin.',
-			button: 'ACTIVATE',
-			betAmountLabel: 'SUPER BOOST',
-			tickerIdle: 'SUPER BOOST IS ACTIVE',
-			tickerSpin: 'GOOD LUCK',
-			bannerText: 'example banner text',
-		},
-	},
-	SUPERSPIN: {
-		mode: 'SUPERSPIN',
-		costMultiplier: 25,
-		type: 'activate',
-		parent: '',
-		children: '',
-		assets: {
-			icon: 'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_9_97/betModes/icon_superspin.webp',
-			dialogImage:
-				'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_9_97/betModes/superspin_image.webp',
-			dialogVolatility:
-				'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_9_97/betModes/volatility/volatility_03.webp',
-			volatility:
-				'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_9_97/betModes/volatility/volatility_white_03.webp',
-			button:
-				'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_9_97/betModes/button_activate.webp',
-		},
-		text: {
-			title: 'SAMURAI SPIN',
-			dialog:
-				'All game features are boosted when activated for 25x the player bet amount. SAMURAI SPIN remains active until disabled by the player.',
-			description: 'SAMURAI SPIN is AWESOME! ',
-			button: 'ACTIVATE',
-			betAmountLabel: 'SAMURAI SPIN',
-			tickerIdle: 'SAMURAI SPIN IS ACTIVE',
-			tickerSpin: 'GOOD LUCK',
-			bannerText: 'example banner text',
-		},
-	},
-	BONUS: {
-		mode: 'BONUS',
+
+	BONUS_4_SCATTER: {
+		mode: 'BONUS_4_SCATTER',
 		costMultiplier: 100,
 		type: 'buy',
 		parent: '',
@@ -129,43 +42,76 @@ const DEFAULT_BET_MODE_META = {
 				'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_8_97/betModes/button_buy.webp',
 		},
 		text: {
-			title: 'BONUS',
+			title: "I DIDN'T INHALE SPINS",
 			dialog:
-				'Triggers FREE SPINS feature when activated for 100x the player bet amount. The Global Multiplier can reach up to 64x and remains active for the duration of FREE SPINS.',
-			description: 'Each spin may have a random multiplier applied to winning lines.',
-			button: 'BUY',
+				'Triggers FREE SPINS with 4 GUARANTEED SCATTERS for 100x the bet amount. The Global Multiplier can reach up to 64x and remains active for the duration of each spin.',
+			description: '4 guaranteed scatter symbols for free spins.',
+			button: 'BUY INHALE',
 			tickerIdle: 'PLACE YOUR BET',
-			tickerSpin: 'BONUS BUY ACTIVATED',
-			bannerText: 'example banner text',
+			tickerSpin: '4 SCATTER BONUS ACTIVATED',
+			bannerText: '4 GUARANTEED SCATTERS',
 		},
+		maxWin: 8888,
 	},
-	SUPER: {
-		mode: 'SUPER',
+
+	BONUS_5_SCATTER: {
+		mode: 'BONUS_5_SCATTER',
 		costMultiplier: 200,
 		type: 'buy',
 		parent: '',
 		children: '',
 		assets: {
-			icon: 'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_9_97/betModes/icon_superbonusbuy.webp',
+			icon: 'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_9_97/betModes/icon_bonusbuy.webp',
 			dialogImage:
-				'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_9_97/betModes/superbonus_image.webp',
+				'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_9_97/betModes/bonus_image.webp',
+			dialogVolatility:
+				'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_9_97/betModes/volatility/volatility_04.webp',
+			volatility:
+				'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_9_97/betModes/volatility/volatility_white_04.webp',
+			button:
+				'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_8_97/betModes/button_buy.webp',
+		},
+		text: {
+			title: 'HONESTLY MINTING SPINS',
+			dialog:
+				'Triggers FREE SPINS with 5 GUARANTEED SCATTERS for 200x the bet amount. The Global Multiplier can reach up to 64x and remains active for the duration of each spin.',
+			description: '5 guaranteed scatter symbols for enhanced free spins.',
+			button: 'BUY MINTING',
+			tickerIdle: 'PLACE YOUR BET',
+			tickerSpin: '5 SCATTER BONUS ACTIVATED',
+			bannerText: '5 GUARANTEED SCATTERS',
+		},
+		maxWin: 8888,
+	},
+
+	BONUS_6_SCATTER: {
+		mode: 'BONUS_6_SCATTER',
+		costMultiplier: 500,
+		type: 'buy',
+		parent: '',
+		children: '',
+		assets: {
+			icon: 'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_9_97/betModes/icon_super_bonusbuy.webp',
+			dialogImage:
+				'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_9_97/betModes/super_bonus_image.webp',
 			dialogVolatility:
 				'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_9_97/betModes/volatility/volatility_05.webp',
 			volatility:
 				'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_9_97/betModes/volatility/volatility_white_05.webp',
 			button:
-				'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_8_97/betModes/button_buy.webp',
+				'https://test-fart-cdn-bucket.s3.ap-southeast-2.amazonaws.com/1_8_97/betModes/button_super_buy.webp',
 		},
 		text: {
-			title: 'SUPER BONUS',
+			title: 'OSAMA KILLER SPINS',
 			dialog:
-				'Triggers FREE SPINS feature when activated for 200x the player bet amount. The Global Multiplier can reach up to 256x and remains active for the duration of FREE SPINS.',
-			description: 'Enter the mothership! Land values and multiply them with action symbols.',
-			button: 'BUY',
+				'Triggers FREE SPINS with 6 GUARANTEED SCATTERS for 500x the bet amount. The Global Multiplier can reach up to 64x and remains active for the duration of each spin.',
+			description: 'Maximum 6 guaranteed scatter symbols for ultimate free spins potential.',
+			button: 'BUY KILLER',
 			tickerIdle: 'PLACE YOUR BET',
-			tickerSpin: 'SUPER BONUS BUY ACTIVATED',
-			bannerText: 'example banner text',
+			tickerSpin: '6 SCATTER BONUS ACTIVATED',
+			bannerText: '6 GUARANTEED SCATTERS',
 		},
+		maxWin: 8888,
 	},
 };
 

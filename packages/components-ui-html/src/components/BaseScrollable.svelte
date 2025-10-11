@@ -41,5 +41,33 @@
 			justify-content: center;
 			max-width: 100%;
 		}
+
+		&.scrollY {
+			overflow-y: auto;
+			max-height: 70vh;
+			scrollbar-width: none; /* Firefox */
+			
+			&::-webkit-scrollbar {
+				display: none; /* Chrome, Safari */
+			}
+
+			@media (max-width: 700px) {
+				max-height: 80vh;
+			}
+		}
+
+		&.scrollX {
+			overflow-x: auto;
+			max-width: 70vw;
+			scrollbar-width: none; /* Firefox */
+			
+			&::-webkit-scrollbar {
+				display: none; /* Chrome, Safari */
+			}
+
+			@media (max-width: 700px) {
+				max-width: 90vw;
+			}
+		}
 	}
 </style>

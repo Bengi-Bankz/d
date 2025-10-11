@@ -2,7 +2,7 @@
   "name": "twist-turbo",
   "version": "0.0.0",
   "private": true,
-	"license": "MIT",
+  "license": "MIT",
   "scripts": {
     "lint": "turbo run lint",
     "format": "turbo run format",
@@ -21,7 +21,8 @@
     "eslint-config-custom": "workspace:*",
     "prettier": "3.5.2",
     "prettier-plugin-svelte": "3.3.3",
-    "turbo": "2.4.4"
+    "turbo": "2.4.4",
+    "vite": "6.2.0"
   },
   "engines": {
     "node": ">=22.16.0"
@@ -32,5 +33,9 @@
       "esbuild",
       "svelte-preprocess"
     ]
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.14",
+    "tailwindcss": "^4.1.14"
   }
 }

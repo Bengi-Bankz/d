@@ -6,6 +6,7 @@ export const UI_BASE_FONT_SIZE = UI_BASE_SIZE * 0.3;
 
 export const UI_TEXT_STYLES = {
 	labelStyle: {
+		fontfamily: 'TradeWinds-Regular, sans-serif',
 		fontSize: UI_BASE_FONT_SIZE,
 		fill: WHITE,
 	},

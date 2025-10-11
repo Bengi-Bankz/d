@@ -8,7 +8,7 @@
 
 	const props: Partial<Omit<ButtonProps, 'children'>> = $props();
 	const context = getContext();
-	const sizes = { width: UI_BASE_SIZE * 1.3, height: UI_BASE_SIZE * 1.3 };
+	const sizes = { width: UI_BASE_SIZE * 1.7, height: UI_BASE_SIZE * 0.7 };
 
 	const onpress = () => {
 		context.eventEmitter.broadcast({ type: 'soundPressGeneral' });
@@ -25,4 +25,4 @@
 	);
 </script>
 
-<UiButton {...props} {sizes} {onpress} {icon} variant="light" />
+<UiButton {...props} {sizes} {onpress} icon={icon} variant="glow-blue" />

@@ -4,8 +4,6 @@
 	import { getContextEventEmitter } from 'utils-event-emitter';
 	import { Button } from 'components-shared';
 
-	import BaseIcon from './BaseIcon.svelte';
-	import BaseButtonContent from './BaseButtonContent.svelte';
 	import type { EmitterEventModal } from '../types';
 
 	type Props = {
@@ -24,6 +22,9 @@
 		<!-- button -->
 		<div class="button-wrap">
 			<Button
+				variant="purple"
+				size="small"
+				shape="round"
 				onclick={() => {
 					eventEmitter.broadcast({ type: 'soundPressGeneral' });
 					if (value === 0) {
@@ -33,10 +34,7 @@
 					}
 				}}
 			>
-				<BaseIcon width="3rem" height="3rem" />
-				<BaseButtonContent>
-					<span>{value > 0 ? 'ON' : 'OFF'}</span>
-				</BaseButtonContent>
+				<span style="font-weight: bold; font-size: 0.7rem;">{value > 0 ? 'ON' : 'OFF'}</span>
 			</Button>
 		</div>
 

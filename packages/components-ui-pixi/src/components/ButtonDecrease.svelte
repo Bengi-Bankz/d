@@ -3,6 +3,7 @@
 	import { stateBet, stateBetDerived, stateConfig } from 'state-shared';
 
 	import UiButton from './UiButton.svelte';
+	import { Sprite } from 'pixi-svelte';
 	import { getContext } from '../context';
 	import { UI_BASE_SIZE } from '../constants';
 
@@ -25,4 +26,8 @@
 	};
 </script>
 
-<UiButton {...props} {sizes} {onpress} {disabled} icon="decrease" />
+
+<UiButton {...props} {sizes} {onpress} {disabled} variant="glow-orange">
+    <Sprite key="decrease" width={sizes.width * 1} height={sizes.height * 1} anchor={-0.} />
+</UiButton>
+

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Container } from 'pixi-svelte';
+	import { Container, Sprite } from 'pixi-svelte';
 	import type { ButtonProps } from 'components-pixi';
 	import { stateBet, stateBetDerived, stateModal } from 'state-shared';
 
@@ -25,10 +25,23 @@
 		context.eventEmitter.broadcast({ type: 'soundPressGeneral' });
 		stateBetDerived.hasAutoBetCounter() ? stopAutoSpin() : openModal();
 	};
-</script>
 
-<UiButton {...props} {sizes} {active} {onpress} {disabled} icon="autoSpin">
-	<Container x={sizes.width * 0.5} y={sizes.height * 0.5}>
+	// Calculate glow variant based on auto spin state
+	const buttonVariant = $derived(() => {
+		if (disabled) return 'dark';
+		return active ? 'glow-pink' : 'glow-purple';
+	});
+</script>
+<UiButton
+	{...props}
+	{sizes}
+	{active}
+	{onpress}
+	{disabled}
+	variant={buttonVariant()}
+>
+	<Sprite key="auto" width={sizes.width} height={sizes.height} anchor={0} />
+	<Container x={sizes.width * 0.4} y={sizes.height * 0.4}>
 		<ButtonBetAutoSpinsCounter />
 	</Container>
 </UiButton>

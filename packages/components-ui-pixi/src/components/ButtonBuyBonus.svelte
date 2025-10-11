@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Text } from 'pixi-svelte';
+	import { Text, Sprite } from 'pixi-svelte';
 	import { Button, type ButtonProps } from 'components-pixi';
 	import { stateModal, stateBet, stateBetDerived } from 'state-shared';
 
@@ -7,12 +7,24 @@
 	import { UI_BASE_FONT_SIZE, UI_BASE_SIZE } from '../constants';
 	import { getContext } from '../context';
 	import { i18nDerived } from '../i18n/i18nDerived';
+	import { WHITE, DISABLED_SECONDARY } from 'constants-shared/colors';
 
 	const props: Partial<Omit<ButtonProps, 'children'>> = $props();
 	const { stateXstateDerived, eventEmitter } = getContext();
 	const sizes = { width: UI_BASE_SIZE, height: UI_BASE_SIZE };
 	const disabled = $derived(!stateXstateDerived.isIdle());
 	const active = $derived(stateBetDerived.activeBetMode()?.type === 'activate');
+
+	// Calculate text color based on state
+	const textColor = $derived(() => {
+		return disabled ? DISABLED_SECONDARY : WHITE;
+	});
+
+	// Calculate button variant based on active state
+	const buttonVariant = $derived(() => {
+		if (disabled) return 'dark';
+		return active ? 'glow-orange' : 'glow-purple';
+	});
 
 	const openModal = () => (stateModal.modal = { name: 'buyBonus' });
 	const disableActiveBetMode = () => (stateBet.activeBetModeKey = 'BASE');
@@ -55,31 +67,38 @@
 			anchor={0.5}
 			width={sizes.width}
 			height={sizes.height}
-			{...disabled
-				? {
-						backgroundColor: 0xaaaaaa,
-					}
-				: {}}
+			variant={buttonVariant()}
+			state={disabled ? 'disabled' : pressed ? 'pressed' : hovered ? 'hover' : 'normal'}
+			showBorder={true}
+			showShadow={true}
+			borderRadius={18}
 			{...active
 				? {
-						borderWidth: 10,
-						borderColor: 0xffffff,
+						borderWidth: 6,
+						borderColor: '#ffd700',
 					}
 				: {}}
+		/>
+
+		<Sprite
+			key="beehive"
+			width={sizes.width * 0.5}
+			height={sizes.height * 0.5}
+			anchor={-.5}
+			y={-sizes.height * 0.15}
 		/>
 
 		<Text
 			{...center}
 			anchor={0.5}
-			text={state === 'active' ? i18nDerived.disable() : i18nDerived.buyBonus()}
+			y={sizes.height * 0.78}
+			text="Bonus"
 			style={{
 				align: 'center',
-				wordWrap: true,
-				wordWrapWidth: 200,
-				fontFamily: 'proxima-nova',
-				fontWeight: '600',
-				fontSize: UI_BASE_FONT_SIZE * 0.9,
-				fill: 0xffffff,
+				fontFamily: 'TradeWinds-Regular',
+				fontSize: UI_BASE_SIZE * 0.25,
+				fill: textColor(),
+				dropShadow: true,
 			}}
 		/>
 	{/snippet}

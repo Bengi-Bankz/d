@@ -42,7 +42,7 @@
 			{/snippet}
 
 			{#snippet bonusCardsBuy()}
-				<BonusCards list={buyList} />
+				<BonusCards list={buyList} label="Purchase" />
 			{/snippet}
 		</BonusContentWrap>
 	</Popup>

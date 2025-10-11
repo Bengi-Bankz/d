@@ -1,8 +1,9 @@
 <script lang="ts">
-	import { Text, Rectangle } from 'pixi-svelte';
+	import { Text } from 'pixi-svelte';
 	import { stateBet } from 'state-shared';
 	import { WHITE } from 'constants-shared/colors';
 
+	import UiSprite from './UiSprite.svelte';
 	import { UI_BASE_SIZE } from '../constants';
 
 	const fontSizeMultiplier = $derived.by(() => {
@@ -11,20 +12,31 @@
 		if (stateBet.autoSpinsCounter > 9) return 2;
 		return 2.5;
 	});
+
+	// Calculate glow variant based on counter value
+	const counterVariant = $derived(() => {
+		if (stateBet.autoSpinsCounter === Infinity) return 'glow-orange'; // Infinite spins - special
+		if (stateBet.autoSpinsCounter <= 5) return 'glow-pink'; // Low count - attention
+		return 'glow-green'; // Normal count
+	});
 </script>
 
 {#if stateBet.autoSpinsCounter > 0}
-	<Rectangle
+	<UiSprite
 		anchor={0.5}
 		width={UI_BASE_SIZE * 0.9}
 		height={UI_BASE_SIZE * 0.9}
 		borderRadius={50}
+		variant={counterVariant()}
+		state="normal"
+		showBorder={true}
+		showShadow={true}
 	/>
 	<Text
 		anchor={0.5}
 		text={stateBet.autoSpinsCounter === Infinity ? '∞' : stateBet.autoSpinsCounter}
 		style={{
-			fontFamily: 'proxima-nova',
+			fontFamily: 'TradeWinds-Regular, sans-serif',
 			fill: WHITE,
 			fontWeight: 'bold',
 			fontSize: fontSizeMultiplier * UI_BASE_SIZE * 0.2,

@@ -8,18 +8,16 @@
 	import type { LayoutUiProps } from '../types';
 	import LabelFreeSpinCounter from './LabelFreeSpinCounter.svelte';
 	import { DESKTOP_BASE_SIZE, DESKTOP_BACKGROUND_WIDTH_LIST } from '../constants';
+	import TrumpSprite from './TrumpSprite.svelte';
 
 	const props: LayoutUiProps = $props();
 	const context = getContext();
 </script>
 
-<Container x={20}>
-	{@render props.gameName()}
+<Container x={20} y={20}>
+    {@render props.gameName({ y: 0 })}
 </Container>
 
-<Container x={context.stateLayoutDerived.canvasSizes().width - 20}>
-	{@render props.logo()}
-</Container>
 
 <MainContainer standard alignVertical="bottom">
 	<Container

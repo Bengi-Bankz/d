@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { ACCENT_PRIMARY, BORDER_ACCENT } from 'constants-shared/colors';
 	type Props = {
 		width: string;
 		height: string;
@@ -6,7 +7,8 @@
 		border?: string;
 	};
 
-	const { width, height, background = 'black', border = 'none' }: Props = $props();
+	// Use shared colors as default
+	const { width, height, background = `#${ACCENT_PRIMARY.toString(16)}`, border = `2px solid #${BORDER_ACCENT.toString(16)}` }: Props = $props();
 </script>
 
 <div

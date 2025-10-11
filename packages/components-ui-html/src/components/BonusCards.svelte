@@ -4,14 +4,13 @@
 	import { getContextEventEmitter } from 'utils-event-emitter';
 	import { numberToCurrencyString } from 'utils-shared/amount';
 
-	import BaseIcon from './BaseIcon.svelte';
 	import BonusCard from './BonusCard.svelte';
-	import BaseButtonContent from './BaseButtonContent.svelte';
 	import { stateBonus } from '../stateBonus.svelte';
 	import type { EmitterEventModal } from '../types';
 
 	type Props = {
 		list: BetModeData[];
+		label?: string;
 	};
 
 	const props: Props = $props();
@@ -43,6 +42,9 @@
 
 			{#snippet button()}
 				<Button
+					variant="orange"
+					size="medium"
+					shape="rounded"
 					onclick={() => {
 						stateBonus.selectedBetModeKey = betModeData.mode;
 						eventEmitter.broadcast({ type: 'buyBonusConfirm' });
@@ -51,10 +53,9 @@
 					disabled={stateBet.betAmount <= 0 ||
 						stateBet.balanceAmount < stateBet.betAmount * betModeData.costMultiplier}
 				>
-					<BaseIcon width="100%" height="2rem" border="2px solid white;" />
-					<BaseButtonContent>
-						<span style="font-size: 1rem;">{betModeData.text.button}</span>
-					</BaseButtonContent>
+					<span style="font-size: 1rem; font-weight: bold;">
+						{props.label ?? betModeData.text.button}
+					</span>
 				</Button>
 			{/snippet}
 		</BonusCard>
@@ -66,6 +67,7 @@
 		font-size: 1rem;
 		line-height: 1rem;
 		text-align: center;
+		font-family: 'TradeWinds-Regular', sans-serif;
 	}
 
 	.description {
@@ -75,6 +77,7 @@
 		white-space: pre-line;
 		display: inline-flex;
 		align-items: center;
+		font-family: 'TradeWinds-Regular', sans-serif;
 	}
 
 	.description:empty {
