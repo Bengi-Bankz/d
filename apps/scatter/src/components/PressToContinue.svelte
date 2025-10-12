@@ -32,20 +32,19 @@
 		frameKeys={["clinton0","clinton1","clinton2","clinton3","clinton4","clinton5","clinton6","clinton7","clinton8"]}
 		fps={12}
 		x={context.stateLayoutDerived.mainLayout().width * 0.5 - 600}
-		y={context.stateLayoutDerived.mainLayout().height - 700}
+		y={context.stateLayoutDerived.mainLayout().height - 400}
 		width={400}
 		height={500}
 		scale={2}
 	/>
 
-	<FrameDisplay
-		frameKeys={["lincoln0","lincoln1","lincoln2","lincoln3","lincoln4","lincoln5","lincoln6","lincoln7"]}
-		fps={12}
-		x={context.stateLayoutDerived.mainLayout().width * 0.5 - 250}
-		y={context.stateLayoutDerived.mainLayout().height - 700}
-		width={400}
-		height={500}
-		scale={2}
+	<Sprite
+		key="trashcan"
+		width={907}
+		height={626}
+		anchor={{ x: 0.5, y: 1 }}
+		x={context.stateLayoutDerived.mainLayout().width * 0.5 - 340}
+		y={context.stateLayoutDerived.mainLayout().height - 240}
 	/>
 
 	<!-- Second FrameDisplay beside the first -->

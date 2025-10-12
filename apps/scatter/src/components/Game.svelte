@@ -30,9 +30,6 @@
 	import FreeSpinIntro from './FreeSpinIntro.svelte';
 	import FreeSpinCounter from './FreeSpinCounter.svelte';
 	import FreeSpinOutro from './FreeSpinOutro.svelte';
-	import Transition from './Transition.svelte';
-	import I18nTest from './I18nTest.svelte';
-	import FrameDisplay from '../framedisplay.svelte';
 
 	const context = getContext();
 
@@ -86,15 +83,7 @@
 			<MultiplierTotal />
 		</MainContainer>
 
-		<!-- Animate trump0-9 forward and backward every 3 minutes -->
-		<FrameDisplay
-			frameKeys={["trump0","trump1","trump2","trump3","trump4","trump5","trump6","trump7","trump8","trump9"]}
-			fps={24}
-			x={900}
-			y={375}
-			width={400}
-			height={500}
-		/>
+		
 
 		<UI>
 			{#snippet gameName()}
@@ -120,9 +109,7 @@
 			<FreeSpinCounter />
 		{/if}
 		<FreeSpinOutro />
-		<Transition />
 
-		<I18nTest />
 	{/if}
 </App>
 

@@ -268,12 +268,7 @@ const backgroundHigh = {
 export const SYMBOL_INFO_MAP = {
 	H1: {
 		explosion,
-		win: {
-			type: 'spine',
-			assetKey: 'H1',
-			animationName: 'h1',
-			sizeRatios: { width: 0.5 * 1.15, height: HIGH_SYMBOL_SIZE * 0.57 },
-		},
+		win: h1Static,
 		postWinStatic: h1Static,
 		static: h1Static,
 		spin: h1Static,

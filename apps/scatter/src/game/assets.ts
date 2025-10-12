@@ -10,7 +10,8 @@ export default {
 	},
 	pressToContinueText: {
 		type: 'sprites',
-		src: new URL('../../assets/sprites/pressToContinueText/MM_pressanywhere.json', import.meta.url).href,
+		src: new URL('../../assets/sprites/pressToContinueText/MM_pressanywhere.json', import.meta.url)
+			.href,
 		preload: true,
 	},
 	H1: {
@@ -121,6 +122,10 @@ export default {
 		type: 'sprites',
 		src: new URL('../../assets/sprites/reelsFrame/reels_frame.json', import.meta.url).href,
 	},
+	trashcan: {
+		type: 'sprite',
+		src: new URL('../../assets/fonts/trashcan/trashcan.png', import.meta.url).href,
+	},
 	payFrame: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/payFrame/payFrame.png', import.meta.url).href,
@@ -137,6 +142,45 @@ export default {
 		type: 'font',
 		src: new URL('../../assets/fonts/goldFont/mm_gold.xml', import.meta.url).href,
 	},
+	auto: {
+		type: 'sprite',
+		src: new URL('../../assets/fonts/auto/auto.webp', import.meta.url).href,
+	},
+
+	turboon: {
+		type: 'sprite',
+		src: new URL('../../assets/fonts/turboon/turboon.webp', import.meta.url).href,
+	},
+	turbooff: {
+		type: 'sprite',
+		src: new URL('../../assets/fonts/turbooff/turbooff.webp', import.meta.url).href,
+	},
+	menu: {
+		type: 'sprite',
+		src: new URL('../../assets/fonts/menu/menu.webp', import.meta.url).href,
+	},
+	play: {
+		type: 'sprite',
+		src: new URL('../../assets/fonts/play/play.webp', import.meta.url).href,
+	},
+	beehive: {
+		type: 'sprite',
+		src: new URL('../../assets/fonts/beehive/beehive.webp', import.meta.url).href,
+	},
+
+	stop: {
+		type: 'sprite',
+		src: new URL('../../assets/fonts/stop/stop.webp', import.meta.url).href,
+	},
+	increase: {
+		type: 'sprite',
+		src: new URL('../../assets/fonts/increase/increase.webp', import.meta.url).href,
+	},
+	decrease: {
+		type: 'sprite',
+		src: new URL('../../assets/fonts/decrease/decrease.webp', import.meta.url).href,
+	},
+
 	goldBlur: {
 		type: 'font',
 		src: new URL('../../assets/fonts/goldBlur/miningfont_gold_blur.xml', import.meta.url).href,
@@ -161,7 +205,8 @@ export default {
 		type: 'spine',
 		src: {
 			atlas: new URL('../../assets/spines/globalMultiplier/multiframe.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/globalMultiplier/multiframe.json', import.meta.url).href,
+			skeleton: new URL('../../assets/spines/globalMultiplier/multiframe.json', import.meta.url)
+				.href,
 			scale: 2,
 		},
 	},
@@ -201,8 +246,14 @@ export default {
 	foregroundFeatureAnimation: {
 		type: 'spine',
 		src: {
-			atlas: new URL('../../assets/spines/foregroundFeatureAnimation/mm_bg_feature.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/foregroundFeatureAnimation/mm_bg_feature.json', import.meta.url).href,
+			atlas: new URL(
+				'../../assets/spines/foregroundFeatureAnimation/mm_bg_feature.atlas',
+				import.meta.url,
+			).href,
+			skeleton: new URL(
+				'../../assets/spines/foregroundFeatureAnimation/mm_bg_feature.json',
+				import.meta.url,
+			).href,
 			scale: 2,
 		},
 		preload: true,
@@ -211,7 +262,8 @@ export default {
 		type: 'spine',
 		src: {
 			atlas: new URL('../../assets/spines/tumbleWin/tumble_win.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/tumbleWin/tumble_multiplier.json', import.meta.url).href,
+			skeleton: new URL('../../assets/spines/tumbleWin/tumble_multiplier.json', import.meta.url)
+				.href,
 			scale: 2,
 		},
 	},
@@ -242,7 +294,8 @@ export default {
 	},
 	winSmall: {
 		type: 'sprites',
-		src: new URL('../../assets/sprites/winSmall/MM_Localisation_winsmall.json', import.meta.url).href,
+		src: new URL('../../assets/sprites/winSmall/MM_Localisation_winsmall.json', import.meta.url)
+			.href,
 	},
 	clusterWin: {
 		type: 'spine',

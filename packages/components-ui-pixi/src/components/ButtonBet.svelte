@@ -62,10 +62,11 @@
                 <Container {...center}>
                     {#if ['spin_default', 'spin_disabled'].includes(key)}
                         <Sprite
-                            key="blackfont"
+                            key="play"
                             width={sizes.width}
                             height={sizes.height}
                             anchor={0.5}
+                            scale={0.50}
                         />
                         <Text
                             anchor={0.5}
@@ -81,7 +82,7 @@
                         />
                     {:else if key === 'bonus-active'}
                         <Sprite
-                            key="blackfont"
+                            key="stop"
                             anchor={0.5}
                             scale={0.65}
                         />
@@ -99,7 +100,7 @@
                         />
                     {:else}
                         <Sprite
-                            key="bluefont"
+                            key="stop"
                             width={sizes.width}
                             height={sizes.height}
                             anchor={0.5}
