@@ -1,4 +1,40 @@
 export default {
+	S_19: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/19-27/19.png', import.meta.url).href,
+	},
+	S_20: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/19-27/20.png', import.meta.url).href,
+	},
+	S_21: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/19-27/21.png', import.meta.url).href,
+	},
+	S_22: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/19-27/22.png', import.meta.url).href,
+	},
+	S_23: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/19-27/23.png', import.meta.url).href,
+	},
+	S_24: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/19-27/24.png', import.meta.url).href,
+	},
+	S_25: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/19-27/25.png', import.meta.url).href,
+	},
+	S_26: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/19-27/26.png', import.meta.url).href,
+	},
+	S_27: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/19-27/27.png', import.meta.url).href,
+	},
 	loader: {
 		type: 'spine',
 		src: {
@@ -324,6 +360,11 @@ export default {
 	sound: {
 		type: 'audio',
 		src: new URL('../../assets/audio/sounds.json', import.meta.url).href,
+		preload: true,
+	},
+	multitick: {
+		type: 'sprite',
+		src: new URL('../../assets/fonts/multitick/multitick.webp', import.meta.url).href,
 		preload: true,
 	},
 } as const;

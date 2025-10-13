@@ -2,7 +2,7 @@ import _ from 'lodash';
 
 import type { RawSymbol, SymbolState } from './types';
 
-export const SYMBOL_SIZE = 100;
+export const SYMBOL_SIZE = 120;
 
 export const REEL_PADDING = 0.53;
 
@@ -398,19 +398,34 @@ export const SYMBOL_INFO_MAP = {
 	S: {
 		explosion,
 		postWinStatic: sStatic,
-		static: sStatic,
-		spin: {
-			type: 'spine',
-			assetKey: 'S',
-			animationName: 'scatter_spin',
-			sizeRatios: sSizeRatios,
+		static: {
+			type: 'sprite',
+			assetKey: 'S_19',
+			sizeRatios: sSizeRatios
 		},
-		win: { type: 'spine', assetKey: 'S', animationName: 'scatter_win', sizeRatios: sSizeRatios },
+		spin: {
+			type: 'sprite',
+			assetKey: 'S_19',
+			sizeRatios: sSizeRatios
+		},
+		win: {
+			type: 'sprite',
+			assetKeys: [
+				'S_19',
+				'S_20',
+				'S_21',
+				'S_22',
+				'S_23',
+				'S_24',
+				'S_25',
+				'S_26',
+			],
+			sizeRatios: sSizeRatios
+		},
 		land: {
-			type: 'spine',
-			assetKey: 'S',
-			animationName: 'scatter_land',
-			sizeRatios: sSizeRatios,
+			type: 'sprite',
+			assetKey: 'S_19',
+			sizeRatios: sSizeRatios
 		},
 	},
 	M_2: {
@@ -503,6 +518,24 @@ export const SYMBOL_INFO_MAP = {
 			sizeRatios: { width: M_SIZE, height: M_SIZE },
 		},
 	},
+	M_15: {
+		explosion,
+		postWinStatic: m10Static, // Reuse m10Static for debug
+		static: m10Static,
+		spin: m10Static,
+		win: {
+			type: 'spine',
+			assetKey: 'M',
+			animationName: '10x', // Use same animation as 10x
+			sizeRatios: { width: M_SIZE, height: M_SIZE },
+		},
+		land: {
+			type: 'spine',
+			assetKey: 'M',
+			animationName: '10x_land', // Use same animation as 10x
+			sizeRatios: { width: M_SIZE, height: M_SIZE },
+		},
+	},
 	M_TAKEN_2: backgroundLow,
 	M_TAKEN_4: backgroundLow,
 	M_TAKEN_5: backgroundMid,
@@ -516,6 +549,7 @@ export const MULTIPLIER_BACKGROUND_INFO_MAP = {
 	M_5: backgroundMid,
 	M_7: backgroundMid,
 	M_10: backgroundHigh,
+	M_15: backgroundHigh, // Use high background for debug
 };
 
 export const SCATTER_LAND_SOUND_MAP = {

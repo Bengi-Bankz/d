@@ -28,6 +28,7 @@
 	"dependencies": {
 		"@lingui/core": "5.2.0",
 		"@sveltejs/kit": "2.17.3",
+		"@tailwindcss/vite": "^4.1.14",
 		"@types/lodash": "4.17.16",
 		"components-layout": "workspace:*",
 		"components-pixi": "workspace:*",
@@ -42,6 +43,7 @@
 		"rgs-requests": "workspace:*",
 		"state-shared": "workspace:*",
 		"svelte": "5.20.5",
+		"tailwindcss": "^4.1.14",
 		"utils-bet": "workspace:*",
 		"utils-book": "workspace:*",
 		"utils-event-emitter": "workspace:*",

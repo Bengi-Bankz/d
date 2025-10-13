@@ -38,15 +38,6 @@
 		scale={2}
 	/>
 
-	<Sprite
-		key="trashcan"
-		width={907}
-		height={626}
-		anchor={{ x: 0.5, y: 1 }}
-		x={context.stateLayoutDerived.mainLayout().width * 0.5 - 340}
-		y={context.stateLayoutDerived.mainLayout().height - 240}
-	/>
-
 	<!-- Second FrameDisplay beside the first -->
 	<FrameDisplay
 		frameKeys={["trump0","trump1","trump2","trump3","trump4","trump5","trump6","trump7","trump8","trump9"]}
