@@ -78,7 +78,13 @@ export const getSymbolInfo = ({
 		return null;
 	}
 	if (!SYMBOL_INFO_MAP[symbolKey][state]) {
-		console.log('[getSymbolInfo] Missing state info for key:', symbolKey, 'state:', state, rawSymbol);
+		console.log(
+			'[getSymbolInfo] Missing state info for key:',
+			symbolKey,
+			'state:',
+			state,
+			rawSymbol,
+		);
 		return null;
 	}
 	return SYMBOL_INFO_MAP[symbolKey][state];

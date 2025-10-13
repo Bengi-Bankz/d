@@ -30,6 +30,7 @@
 	   y={props.y}
 	   width={SYMBOL_SIZE * symbolInfo.sizeRatios.width}
 	   height={SYMBOL_SIZE * symbolInfo.sizeRatios.height}
+	   oncomplete={props.oncomplete}
    />
 {:else if isSprite && symbolInfo}
    <SymbolSprite {symbolInfo} x={props.x} y={props.y} oncomplete={props.oncomplete} />

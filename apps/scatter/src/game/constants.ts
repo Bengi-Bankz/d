@@ -401,31 +401,22 @@ export const SYMBOL_INFO_MAP = {
 		static: {
 			type: 'sprite',
 			assetKey: 'S_19',
-			sizeRatios: sSizeRatios
+			sizeRatios: sSizeRatios,
 		},
 		spin: {
 			type: 'sprite',
 			assetKey: 'S_19',
-			sizeRatios: sSizeRatios
+			sizeRatios: sSizeRatios,
 		},
 		win: {
 			type: 'sprite',
-			assetKeys: [
-				'S_19',
-				'S_20',
-				'S_21',
-				'S_22',
-				'S_23',
-				'S_24',
-				'S_25',
-				'S_26',
-			],
-			sizeRatios: sSizeRatios
+			assetKeys: ['S_19', 'S_20', 'S_21', 'S_22', 'S_23', 'S_24', 'S_25', 'S_26', 'S_27'],
+			sizeRatios: sSizeRatios,
 		},
 		land: {
 			type: 'sprite',
 			assetKey: 'S_19',
-			sizeRatios: sSizeRatios
+			sizeRatios: sSizeRatios,
 		},
 	},
 	M_2: {
