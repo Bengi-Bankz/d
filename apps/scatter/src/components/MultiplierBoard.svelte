@@ -66,13 +66,13 @@
 			let bombId = 0;
 			context.stateGameDerived.boardRaw().forEach((rawSymbols, reelIndex) => {
 				rawSymbols.forEach((rawSymbol, symbolIndex) => {
-					if (rawSymbol.name === 'M') {
+					if (rawSymbol.name === 'M' && symbolIndex > 0 && symbolIndex < rawSymbols.length - 1) {
 						const multiplierValue = rawSymbol.multiplier || 2;
 						bombs.push({
 							id: bombId++,
 							multiplierValue,
 							x: getSymbolX(reelIndex),
-							y: getSymbolY(symbolIndex),
+							y: getSymbolY(symbolIndex - 1),
 							isActive: false,
 							backdropScale: 0.2,
 							showBackdrop: false,
