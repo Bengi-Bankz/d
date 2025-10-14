@@ -34,7 +34,7 @@
 			context.stateGameDerived.boardLayout().height * 0.5,
 	});
 
-	const fontSize = SYMBOL_SIZE * 0.275;
+	const fontSize = SYMBOL_SIZE * 0.175;
 
 	let show = $state(false);
 	let current = $state(0);
@@ -70,9 +70,9 @@
 			})}
 		>
 			<BitmapText
-				text={'FREE SPIN'}
+				text={'FREE\nSPIN'}
 				style={{
-					fontFamily: 'gold',
+					fontFamily: 'MoneyFont3',
 					fontSize,
 					wordWrap: false,
 				}}
@@ -83,7 +83,7 @@
 				{...counterPosition}
 				anchor={{ x: 0.5, y: 0 }}
 				style={{
-					fontFamily: 'gold',
+					fontFamily: 'MoneyFont3',
 					fontSize,
 				}}
 				onresize={(sizes) => (counterSizes = sizes)}

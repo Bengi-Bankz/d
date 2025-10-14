@@ -225,6 +225,10 @@ export default {
 		type: 'font',
 		src: new URL('../../assets/fonts/silverFont/mm_silver.xml', import.meta.url).href,
 	},
+	MoneyFont3: {
+		type: 'font',
+		src: new URL('../../assets/fonts/MoneyFont3/MoneyFont3.xml', import.meta.url).href,
+	},
 	purpleFont: {
 		type: 'font',
 		src: new URL('../../assets/fonts/purpleFont/mm_purple.xml', import.meta.url).href,

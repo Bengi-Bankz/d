@@ -49,7 +49,7 @@
 		y={props.y}
 		text={`${props.rawSymbol.multiplier}X`}
 		style={{
-			fontFamily: 'gold',
+			fontFamily: 'MoneyFont3',
 			fontSize: 50,
 		}}
 	/>
