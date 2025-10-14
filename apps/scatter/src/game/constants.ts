@@ -97,7 +97,7 @@ export const INITIAL_SYMBOL_STATE: SymbolState = 'static';
 const M_SIZE = 0.3;
 const HIGH_SYMBOL_SIZE = 0.9;
 const LOW_SYMBOL_SIZE = 0.9;
-const SPECIAL_SYMBOL_SIZE = 1;
+const SPECIAL_SYMBOL_SIZE = 0.9;
 
 const SPIN_OPTIONS_SHARED = {
 	reelFallInDelay: 80,
@@ -397,7 +397,11 @@ export const SYMBOL_INFO_MAP = {
 	},
 	S: {
 		explosion,
-		postWinStatic: sStatic,
+		postWinStatic: {
+			type: 'sprite',
+			assetKey: 'S_19',
+			sizeRatios: sSizeRatios,
+		},
 		static: {
 			type: 'sprite',
 			assetKey: 'S_19',
