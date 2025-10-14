@@ -6,8 +6,8 @@ export let assetKeys: string[] = [];
 export let frameRate: number = 8; // frames per second
 export let x: number = 0;
 export let y: number = 0;
-export let width: number = 120;
-export let height: number = 120;
+export let width: number = 100;
+export let height: number = 100;
 export let oncomplete: (() => void) | undefined;
 
 let currentFrame = 0;
