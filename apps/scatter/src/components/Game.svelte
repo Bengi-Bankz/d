@@ -136,12 +136,12 @@ const dispatch = createEventDispatcher();
 
       <UI>
         {#snippet gameName()}
-          <UiGameName name="SCATTER GAME" />
+          <UiGameName name="" />
         {/snippet}
         {#snippet logo()}
           <Text
             anchor={{ x: 1, y: 0 }}
-            text="ADD YOUR LOGO"
+            text="Only Spins Studios"
             style={{
               fontFamily: 'TradeWinds-Regular',
               fontWeight: '600',
@@ -161,9 +161,7 @@ const dispatch = createEventDispatcher();
   </Container>
 </App>
 
-<button style="position: absolute; z-index: 1000; top: 20px; left: 20px;" on:click={() => triggerShake({ type: 'slam', magnitude: 15, duration: 400 })}>
-  Test Shake
-</button>
+
 
 <Modals>
   {#snippet version()}

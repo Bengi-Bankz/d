@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Amount from './../../../components-pixi/src/components/Amount.svelte';
 	import SpineSlot from './../../../pixi-svelte/src/lib/components/SpineSlot.svelte';
 	import type { Snippet } from 'svelte';
 
@@ -201,14 +202,14 @@
 					</section>
 
 					<section>
-						<h3>Maximum Win</h3>
+						<h3>Maximum Award</h3>
 						<p>
-							The maximum possible win is capped at <b>10,000× </b>.
+							The maximum possible Award is capped at <b>10,000× </b>.
 						</p>
-						<p><b>Max Win Base Game:</b> 10,000×</p>
-						<p><b>Max Win Did Not Inhale Spins:</b> 10,000×</p>
-						<p><b>Max Win Honest Abe Spins:</b> 10,000×</p>
-						<p><b>Max Win Osama Killer Spins:</b> 10,000×</p>
+						<p><b>Max Award Base Game:</b> 10,000×</p>
+						<p><b>Max Award Did Not Inhale Spins:</b> 10,000×</p>
+						<p><b>Max Award Honest Abe Spins:</b> 10,000×</p>
+						<p><b>Max Award Osama Killer Spins:</b> 10,000×</p>
 					</section>
 
 					<section>
@@ -216,7 +217,7 @@
 						<ul class="button-list">
 							<li>
 								<img src={img17} alt="Spin" />
-								<b>Spin</b> – Plays a single round at the chosen stake.
+								<b>Spin</b> – Plays a single round at the chosen Amount.
 							</li>
 							<li>
 								<img src={img12} alt="Autoplay" />
@@ -232,7 +233,7 @@
 							</li>
 							<li>
 								<img src={img16} alt="Menu" />
-								<b>Menu</b> – Opens sound settings, help, and game history.
+								<b>Menu</b> – Opens sound settings, Awardtable, and game Info.
 							</li>
 						</ul>
 					</section>
