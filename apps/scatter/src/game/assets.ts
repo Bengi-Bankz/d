@@ -333,6 +333,10 @@ export default {
 		src: new URL('../../assets/sprites/winSmall/MM_Localisation_winsmall.json', import.meta.url)
 			.href,
 	},
+	spritesheet: {
+		type: 'sprites',
+		src: new URL('../../assets/sprites/trump/spritesheet.json', import.meta.url).href,
+	},
 	clusterWin: {
 		type: 'spine',
 		src: {
