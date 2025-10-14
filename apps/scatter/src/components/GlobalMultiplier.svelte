@@ -91,9 +91,9 @@
 					<SpineSlot slotName="slot_multi">
 						<BitmapText
 							anchor={0.5}
-							text={`${Math.round(previousMultiplier.current)}×`}
+							text={`${Math.round(previousMultiplier.current)}X`}
 							style={{
-								fontFamily: 'MoneyFont3',
+								fontFamily: 'purple',
 								fontSize: SYMBOL_SIZE * 5.2,
 							}}
 						/>
@@ -101,9 +101,9 @@
 					<SpineSlot slotName="slot_multi_next">
 						<BitmapText
 							anchor={0.5}
-							text={`${multiplier}×`}
+							text={`${multiplier}X`}
 							style={{
-								fontFamily: 'MoneyFont3',
+								fontFamily: 'purple',
 								fontSize: SYMBOL_SIZE * 5.2,
 							}}
 						/>

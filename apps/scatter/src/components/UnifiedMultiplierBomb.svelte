@@ -194,7 +194,7 @@ let assetLoaded = true; // Assume asset is loaded for now; update logic as neede
 							y={0}
 							text={`${currentTickValue}X`}
 							style={{
-								fontFamily: 'DollarBill',
+								fontFamily: 'purple',
 								fontSize: SYMBOL_SIZE * 0.3,
 								letterSpacing: -2,
 							}}
