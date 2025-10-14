@@ -362,9 +362,4 @@ export default {
 		src: new URL('../../assets/audio/sounds.json', import.meta.url).href,
 		preload: true,
 	},
-	multitick: {
-		type: 'sprite',
-		src: new URL('../../assets/fonts/multitick/multitick.webp', import.meta.url).href,
-		preload: true,
-	},
 } as const;

@@ -1,10 +1,12 @@
 <script lang="ts">
+import { createEventDispatcher } from 'svelte';
+const dispatch = createEventDispatcher();
 	import { onMount } from 'svelte';
 
 	import { EnablePixiExtension } from 'components-pixi';
 	import { EnableHotkey } from 'components-shared';
 	import { MainContainer } from 'components-layout';
-	import { App, Text, REM } from 'pixi-svelte';
+	import { App, Text, REM, Container } from 'pixi-svelte';
 	import { stateModal } from 'state-shared';
 
 	import { UI, UiGameName } from 'components-ui-pixi';
@@ -30,6 +32,7 @@
 	import FreeSpinIntro from './FreeSpinIntro.svelte';
 	import FreeSpinCounter from './FreeSpinCounter.svelte';
 	import FreeSpinOutro from './FreeSpinOutro.svelte';
+	import Transition from './Transition.svelte';
 
 	const context = getContext();
 
@@ -40,81 +43,130 @@
 			stateModal.modal = { name: 'buyBonusConfirm' };
 		},
 	});
+
+	let shakeOffset = { x: 0, y: 0 };
+	let shakeActive = false;
+
+	function triggerShake({ type = 'default', magnitude = 10, duration = 400 } = {}) {
+		if (shakeActive) return;
+		shakeActive = true;
+		let elapsed = 0;
+		const start = performance.now();
+		function animate(now: number) {
+			elapsed = now - start;
+			if (elapsed < duration) {
+				if (type === 'tremble') {
+					// Growing tremble effect
+					const grow = magnitude * (elapsed / duration);
+					shakeOffset.x = (Math.random() - 0.5) * grow;
+					shakeOffset.y = (Math.random() - 0.5) * grow;
+				} else if (type === 'slam') {
+					// Strong single shake
+					shakeOffset.x = (Math.random() - 0.5) * magnitude * 2;
+					shakeOffset.y = (Math.random() - 0.5) * magnitude * 2;
+				} else {
+					// Default shake
+					shakeOffset.x = (Math.random() - 0.5) * magnitude;
+					shakeOffset.y = (Math.random() - 0.5) * magnitude;
+				}
+				requestAnimationFrame(animate);
+			} else {
+				shakeOffset.x = 0;
+				shakeOffset.y = 0;
+				shakeActive = false;
+			}
+		}
+		requestAnimationFrame(animate);
+	}
+
+	$: {
+		const scatterCount = context.stateGame.board
+			.flatMap((r) => r.reelState.symbols)
+			.filter((s) => s.rawSymbol.name === 'S').length;
+		if (scatterCount >= 3) {
+			dispatch('shake');
+		}
+	}
 </script>
 
-<App>
-	<EnableSound />
-	<EnableHotkey />
-	<EnableGameActor />
-	<EnablePixiExtension />
+<App
+	onshake={triggerShake}
+	onanticipationShake={() => triggerShake({ type: 'tremble', magnitude: 8, duration: 600 })}
+	onscatterShake={() => triggerShake({ type: 'slam', magnitude: 15, duration: 400 })}
+	onscatterWinShake={() => triggerShake({ type: 'slam', magnitude: 20, duration: 600 })}
+>
+  <Container position={shakeOffset}>
+    <EnableSound />
+    <EnableHotkey />
+    <EnableGameActor />
+    <EnablePixiExtension />
+    <Background />
+    {#if context.stateLayout.showLoadingScreen}
+      <LoadingScreen onloaded={() => (context.stateLayout.showLoadingScreen = false)} />
+    {:else}
+      <ResumeBet />
+      <!--
+        The reason why <Sound /> is rendered after clicking the loading screen:
+        "Autoplay with sound is allowed if: The user has interacted with the domain (click, tap, etc.)."
+        Ref: https://developer.chrome.com/blog/autoplay
+      -->
+      <Sound />
 
-	<Background />
+      <MainContainer>
+        <BoardFrame />
+      </MainContainer>
 
-	{#if context.stateLayout.showLoadingScreen}
-		<LoadingScreen onloaded={() => (context.stateLayout.showLoadingScreen = false)} />
-	{:else}
-		<ResumeBet />
-		<!--
-			The reason why <Sound /> is rendered after clicking the loading screen:
-			"Autoplay with sound is allowed if: The user has interacted with the domain (click, tap, etc.)."
-			Ref: https://developer.chrome.com/blog/autoplay
-		-->
-		<Sound />
+      <MainContainer>
+        <Board />
+        <Anticipations on:shake={() => triggerShake({ type: 'scatter' })}
+                       on:anticipationShake={() => triggerShake({ type: 'tremble', magnitude: 8, duration: 600 })} />
+        <TumbleWinAmount />
+        <GlobalMultiplier />
+      </MainContainer>
 
-		<MainContainer>
-			<BoardFrame />
-		</MainContainer>
+      <MainContainer>
+        <TumbleBoard />
+        <ClusterWinAmounts />
+      </MainContainer>
 
-		<MainContainer>
-			<Board />
-			<Anticipations />
-			<TumbleWinAmount />
-			<GlobalMultiplier />
-		</MainContainer>
+      <MainContainer>
+        <MultiplierBoard />
+        <MultiplierTotal />
+      </MainContainer>
 
-		<MainContainer>
-			<TumbleBoard />
-			<!-- <TumbleAnticipations /> -->
-			<ClusterWinAmounts />
-		</MainContainer>
+      <UI>
+        {#snippet gameName()}
+          <UiGameName name="SCATTER GAME" />
+        {/snippet}
+        {#snippet logo()}
+          <Text
+            anchor={{ x: 1, y: 0 }}
+            text="ADD YOUR LOGO"
+            style={{
+              fontFamily: 'TradeWinds-Regular',
+              fontWeight: '600',
+            }}
+          />
+        {/snippet}
+      </UI>
+      <Win />
+      <FreeSpinIntro />
+      {#if ['desktop', 'landscape'].includes(context.stateLayoutDerived.layoutType())}
+        <FreeSpinCounter />
+      {/if}
+      <FreeSpinOutro />
+      <Transition />
 
-		<MainContainer>
-			<MultiplierBoard />
-			<MultiplierTotal />
-		</MainContainer>
-
-		
-
-		<UI>
-			{#snippet gameName()}
-				<UiGameName name="" />
-			{/snippet}
-			{#snippet logo()}
-				<Text
-					anchor={{ x: 1, y: 0 }}
-					text=""
-					style={{
-						fontFamily: 'proxima-nova',
-						fontSize: REM * 1.5,
-						fontWeight: '600',
-						lineHeight: REM * 2,
-						fill: 0xffffff,
-					}}
-				/>
-			{/snippet}
-		</UI>
-		<Win />
-		<FreeSpinIntro />
-		{#if ['desktop', 'landscape'].includes(context.stateLayoutDerived.layoutType())}
-			<FreeSpinCounter />
-		{/if}
-		<FreeSpinOutro />
-
-	{/if}
+    {/if}
+  </Container>
 </App>
 
+<button style="position: absolute; z-index: 1000; top: 20px; left: 20px;" on:click={() => triggerShake({ type: 'slam', magnitude: 15, duration: 400 })}>
+  Test Shake
+</button>
+
 <Modals>
-	{#snippet version()}
-		<GameVersion version="0.0.0" />
-	{/snippet}
+  {#snippet version()}
+    <GameVersion version="0.0.0" />
+  {/snippet}
 </Modals>
