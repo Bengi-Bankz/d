@@ -36,6 +36,9 @@
 			{@render props.amountBalance({ stacked: true })}
 		</Container>
 
+<Container y={DESKTOP_BASE_SIZE * 0.5 - 405} x={1600} scale={0.9}>
+			{@render props.amountWin({ stacked: true })}
+		</Container>
 
 		<Container y={DESKTOP_BASE_SIZE * 0.5} x={90} scale={0.7}>
 			{@render props.buttonMenu({ anchor: 0.5 })}

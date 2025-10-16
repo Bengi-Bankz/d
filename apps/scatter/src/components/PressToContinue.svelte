@@ -31,7 +31,7 @@
 	<FrameDisplay
 		frameKeys={["clinton0","clinton1","clinton2","clinton3","clinton4","clinton5","clinton6","clinton7","clinton8"]}
 		fps={12}
-		x={context.stateLayoutDerived.mainLayout().width * 0.5 - 600}
+		x={context.stateLayoutDerived.mainLayout().width * 0.5 - 450}
 		y={context.stateLayoutDerived.mainLayout().height - 400}
 		width={400}
 		height={500}
@@ -42,8 +42,8 @@
 	<FrameDisplay
 		frameKeys={["trump0","trump1","trump2","trump3","trump4","trump5","trump6","trump7","trump8","trump9"]}
 		fps={12}
-		x={context.stateLayoutDerived.mainLayout().width * 0.5 + 250}
-		y={context.stateLayoutDerived.mainLayout().height - 700}
+		x={context.stateLayoutDerived.mainLayout().width * 0.5 + 50}
+		y={context.stateLayoutDerived.mainLayout().height - 400}
 		width={400}
 		height={500}
 		scale={2}

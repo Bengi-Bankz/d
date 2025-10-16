@@ -111,10 +111,8 @@ const dispatch = createEventDispatcher();
 </script>
 
 <App
-	onshake={triggerShake}
-	onanticipationShake={() => triggerShake({ type: 'tremble', magnitude: 8, duration: 600 })}
-	onscatterShake={() => triggerShake({ type: 'slam', magnitude: 15, duration: 400 })}
-	onscatterWinShake={() => triggerShake({ type: 'slam', magnitude: 20, duration: 600 })}
+	on:scatterShake={() => triggerShake({ type: 'slam', magnitude: 15, duration: 400 })}
+	on:scatterWinShake={() => triggerShake({ type: 'slam', magnitude: 20, duration: 600 })}
 >
   <Container position={shakeOffset}>
     <EnableSound />
@@ -140,7 +138,7 @@ const dispatch = createEventDispatcher();
       <MainContainer>
         <Board />
         <Anticipations on:shake={() => triggerShake({ type: 'scatter' })}
-                       on:anticipationShake={() => triggerShake({ type: 'tremble', magnitude: 8, duration: 600 })} />
+                       on:anticipationShake={() => triggerShake({ type: 'tremble', magnitude: 5, duration: 300 })} />
         <TumbleWinAmount />
         <GlobalMultiplier />
       </MainContainer>
