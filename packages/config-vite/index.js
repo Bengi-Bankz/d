@@ -7,6 +7,8 @@ import { defineConfig } from 'vite';
 const NODE_ENV = process.env.NODE_ENV;
 let dev = NODE_ENV === 'development';
 
+import path from 'path';
+
 export default () =>
 	defineConfig({
 		plugins: [sveltekit(), lingui(), tailwindcss()],
@@ -25,4 +27,14 @@ export default () =>
 				},
 			},
 		},
+		server: {
+			fs: {
+				allow: [
+					path.resolve(__dirname, '../../apps/scatter/static'),
+					path.resolve(__dirname, '../../apps/scatter/src'),
+					path.resolve(__dirname, '../../apps/scatter/node_modules'),
+					path.resolve(__dirname, '../../node_modules'),
+				]
+			}
+		}
 	});
