@@ -29,7 +29,7 @@ const onSymbolLand = ({ rawSymbol }: { rawSymbol: RawSymbol }) => {
 			name: SCATTER_LAND_SOUND_MAP[scatterLandIndex()],
 		});
 		// Increment scatter landed store for shake effect
-		scatterLandedThisRound.update(n => n + 1);
+		scatterLandedThisRound.update((n) => n + 1);
 	}
 
 	if (rawSymbol.name === 'M') {
