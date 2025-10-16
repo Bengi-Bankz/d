@@ -1,4 +1,3 @@
-
 import type { BaseBet } from 'utils-bet';
 import { stateMeta } from './stateMeta.svelte';
 import { stateConfig } from './stateConfig.svelte';
