@@ -119,26 +119,26 @@
 
 	<MainContainer standard alignVertical="bottom">
 		<Container
-			x={165}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - LANDSCAPE_BASE_SIZE - 130}
+			x={195}
+			y={context.stateLayoutDerived.mainLayoutStandard().height - LANDSCAPE_BASE_SIZE - 15}
 		>
-			<Container scale={0.8} y={LANDSCAPE_BASE_SIZE * 0.5 - 150 - 170 * 3}>
+			<Container scale={0.8} y={LANDSCAPE_BASE_SIZE * 0.5 - 10 - 128 * 3}>
 				{@render props.buttonPayTable({ anchor: 0.5 })}
 			</Container>
 
-			<Container scale={0.8} y={LANDSCAPE_BASE_SIZE * 0.5 - 150 - 170 * 2}>
+			<Container scale={0.8} y={LANDSCAPE_BASE_SIZE * 0.5 - 10 - 142 * 2}>
 				{@render props.buttonGameRules({ anchor: 0.5 })}
 			</Container>
 
-			<Container scale={0.8} y={LANDSCAPE_BASE_SIZE * 0.5 - 150 - 170 * 1}>
+			<Container scale={0.8} y={LANDSCAPE_BASE_SIZE * 0.5 - 30 - 170 * 1}>
 				{@render props.buttonSettings({ anchor: 0.5 })}
 			</Container>
 
-			<Container scale={0.8} y={LANDSCAPE_BASE_SIZE * 0.5 - 150}>
+			<Container scale={0.8} y={LANDSCAPE_BASE_SIZE * 0.5 - 110 - 170 * 0}>
 				{@render props.buttonSoundSwitch({ anchor: 0.5 })}
 			</Container>
 
-			<Container scale={1} y={LANDSCAPE_BASE_SIZE * 0.5}>
+			<Container scale={0.9} y={LANDSCAPE_BASE_SIZE * 0.5}>
 				{@render props.buttonMenuClose({ anchor: 0.5 })}
 			</Container>
 		</Container>

@@ -140,22 +140,22 @@
 
 	<MainContainer standard alignVertical="bottom">
 		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5 - 350}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - 110}
+			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5 - 445}
+			y={context.stateLayoutDerived.mainLayoutStandard().height - 159}
 		>
-			<Container y={-190 - 210 * 3}>
+			<Container y={-110 - 128 * 3}>
 				{@render props.buttonPayTable({ anchor: 0.5 })}
 			</Container>
 
-			<Container y={-190 - 210 * 2}>
+			<Container y={-110 - 130 * 2}>
 				{@render props.buttonGameRules({ anchor: 0.5 })}
 			</Container>
 
-			<Container y={-190 - 210 * 1}>
+			<Container y={-110 - 140 * 1}>
 				{@render props.buttonSettings({ anchor: 0.5 })}
 			</Container>
 
-			<Container y={-190}>
+			<Container y={-140}>
 				{@render props.buttonSoundSwitch({ anchor: 0.5 })}
 			</Container>
 
