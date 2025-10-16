@@ -16,6 +16,7 @@
             <BaseTitle>{i18nDerived.settings()}</BaseTitle>
             <BaseScrollable type="column">
                 <div class="flex flex-col gap-4 min-w-[220px] sm:min-w-[360px] md:min-w-[480px]">
+
                     <ModalSettingsSound bind:value={stateSound.volumeValueMaster}>
                         {i18nDerived.masterVolume()}
                     </ModalSettingsSound>

@@ -35,6 +35,13 @@
 		{@render props.amountBet({ stacked: true })}
 	</Container>
 
+	<Container
+		x={context.stateLayoutDerived.canvasSizes().width + 500}
+		y={1420}
+		scale={1.2}
+	>
+		{@render props.amountWin({ stacked: true })}
+	</Container>
 	<!-- Full-width background behind all UI buttons -->
 	<UiSprite
 		x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5}
@@ -128,19 +135,19 @@
 	<Rectangle
 		eventMode="static"
 		cursor="pointer"
-		alpha={0.5}
-		anchor={0.5}
+		alpha={1}
+		anchor={0.7}
 		backgroundColor={BLACK}
-		width={context.stateLayoutDerived.canvasSizes().width}
-		height={context.stateLayoutDerived.canvasSizes().height}
-		x={context.stateLayoutDerived.canvasSizes().width * 0.5}
-		y={context.stateLayoutDerived.canvasSizes().height * 0.5}
+		width={120}
+		height={410}
+		x={context.stateLayoutDerived.canvasSizes().width * 0.2}
+		y={context.stateLayoutDerived.canvasSizes().height * 1}
 		onpointerup={() => (stateUi.menuOpen = false)}
 	/>
 
 	<MainContainer standard alignVertical="bottom">
 		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5 - 445}
+			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5 - 395}
 			y={context.stateLayoutDerived.mainLayoutStandard().height - 159}
 		>
 			<Container y={-110 - 128 * 3}>
@@ -160,7 +167,7 @@
 			</Container>
 
 			<Container>
-				{@render props.buttonMenuClose({ anchor: 0.5 })}
+				{@render props.buttonMenuClose({ anchor: 0.6 })}
 			</Container>
 		</Container>
 	</MainContainer>

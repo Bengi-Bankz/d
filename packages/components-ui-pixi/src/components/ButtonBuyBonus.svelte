@@ -95,7 +95,7 @@
 			text="Bonus"
 			style={{
 				align: 'center',
-				fontFamily: 'TradeWinds-Regular',
+				fontFamily: 'Bangers-Regular',
 				fontSize: UI_BASE_SIZE * 0.25,
 				fill: textColor(),
 				dropShadow: true,

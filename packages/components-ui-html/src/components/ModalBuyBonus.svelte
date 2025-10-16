@@ -32,7 +32,8 @@
 
 {#if stateModal.modal?.name === 'buyBonus'}
 	<Popup zIndex={zIndex.modal} onclose={() => (stateModal.modal = null)}>
-		<BonusContentWrap maxListLength={Math.max(activateList.length, buyList.length)}>
+	<BonusContentWrap maxListLength={Math.max(activateList.length, buyList.length)}>
+
 			{#snippet betAmount()}
 				<BetMenuAmountToggle />
 			{/snippet}

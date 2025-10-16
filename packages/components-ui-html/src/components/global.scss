@@ -1,3 +1,9 @@
+// ModalSettings responsive height for very small screens
+@media (max-width: 400px) and (max-height: 225px) {
+	.modal-settings-short {
+		max-height: 140px;
+	}
+}
 .btn-hard-outline {
 	border-width: 4px;
 	border-color: #2563eb; /* blue-600 */

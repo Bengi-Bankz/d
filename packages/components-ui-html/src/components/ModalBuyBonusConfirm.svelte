@@ -35,6 +35,7 @@
 				{stateBonusDerived.selectedBetModeData().text.title}
 			</BaseTitle>
 			<BaseScrollable type="column">
+
 				{stateBonusDerived.selectedBetModeData().text.dialog}
 			</BaseScrollable>
 			<BaseButtonWrap type="max-width">

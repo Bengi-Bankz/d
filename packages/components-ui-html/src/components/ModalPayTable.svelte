@@ -30,6 +30,7 @@
 		<BaseContent maxWidth="100%">
 			<BaseScrollable type="column">
 				<div class="paytable-modal-outer">
+
 					<div class="paytable-modal-inner" style="position:relative;">
 						<button
 							class="paytable-modal-close-btn"
