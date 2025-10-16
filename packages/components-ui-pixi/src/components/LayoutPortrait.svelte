@@ -18,13 +18,22 @@
 </Container>
 
 <MainContainer standard alignVertical="bottom">
+
 	<Container
-    x={context.stateLayoutDerived.canvasSizes().width - 160}
-    y={1350}
-    scale={1.2}
->
-    {@render props.amountBalance({ stacked: true })}
-</Container>
+		x={context.stateLayoutDerived.canvasSizes().width - 160}
+		y={1620}
+		scale={1.2}
+	>
+		{@render props.amountBalance({ stacked: true })}
+	</Container>
+
+	<Container
+		x={context.stateLayoutDerived.canvasSizes().width + 190}
+		y={1620}
+		scale={1.2}
+	>
+		{@render props.amountBet({ stacked: true })}
+	</Container>
 
 	<!-- Full-width background behind all UI buttons -->
 	<UiSprite
@@ -95,12 +104,6 @@
 			<LabelFreeSpinCounter stacked />
 		</Container>
 	{:else}
-		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.7}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - 525}
-		>
-			{@render props.amountBet({ stacked: true })}
-		</Container>
 
 <Container
     x={context.stateLayoutDerived.mainLayoutStandard().width * 0.96 }

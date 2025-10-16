@@ -15,19 +15,32 @@
 	</div>
 </div>
 
+
 <style lang="scss">
-	.ui-modal-button-wrap {
-		width: 100%;
-		display: flex;
-		justify-content: center;
-	}
+   .ui-modal-button-wrap {
+	   width: 100%;
+	   display: flex;
+	   justify-content: center;
+   }
 
-	.full-width {
-		width: 100%;
-	}
+   .full-width {
+	   width: 100%;
+   }
 
-	.max-width {
-		width: 100%;
-		max-width: 250px;
-	}
+   .max-width {
+	   width: 100%;
+	   max-width: 250px;
+   }
+
+   .button {
+	   width: 100%;
+	   position: relative;
+	   font-family: "Bangers-Regular", sans-serif;
+	   cursor: pointer;
+	   display: inline-flex;
+	   justify-content: center;
+	   background-color: black;
+	   border-color: aliceblue;
+	   padding: 0;
+   }
 </style>

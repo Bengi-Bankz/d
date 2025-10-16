@@ -52,7 +52,7 @@
 	};
 </script>
 
-<Button {...props} {sizes} {disabled} {onpress}>
+<Button {...props} {sizes} {disabled} {onpress} shape="pill">
 	{#snippet children({ center, hovered, pressed })}
 		{@const state = getState({
 			active,

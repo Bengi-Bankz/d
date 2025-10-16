@@ -11,7 +11,7 @@
 
     const props: Props = $props();
     const balanceTween = new Tween(stateBet.balanceAmount);
-    const label = $derived(i18nDerived.balance());
+    const label = $derived('BAL:');
     const value = $derived(numberToCurrencyString(balanceTween.current));
 
     $effect(() => {
@@ -19,4 +19,4 @@
     });
 </script>
 
-<UiLabel {label} {value} stacked={false} />
+<UiLabel {label} {value} stacked={false} tiled small={true} glowVariant="glow-green" />

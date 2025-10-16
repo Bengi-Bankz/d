@@ -44,7 +44,7 @@
 				<Button
 					variant="orange"
 					size="medium"
-					shape="rounded"
+					shape="pill"
 					onclick={() => {
 						stateBonus.selectedBetModeKey = betModeData.mode;
 						eventEmitter.broadcast({ type: 'buyBonusConfirm' });

@@ -19,7 +19,7 @@
 <MainContainer standard alignVertical="bottom">
 	<Container
 		x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5}
-		y={context.stateLayoutDerived.mainLayoutStandard().height - LANDSCAPE_BASE_SIZE - 40}
+		y={context.stateLayoutDerived.mainLayoutStandard().height - LANDSCAPE_BASE_SIZE - 20}
 		pivot={anchorToPivot({
 			anchor: { x: 0.5, y: 0 },
 			sizes: {
@@ -31,27 +31,27 @@
 
 
 		    <!-- Add background rectangle behind all buttons -->
-        <UiSprite
-            width={LANDSCAPE_BACKGROUND_WIDTH_LIST.reduce((sum, width) => sum + width, 0)}
-            height={LANDSCAPE_BASE_SIZE}
-            x={-LANDSCAPE_BACKGROUND_WIDTH_LIST.reduce((sum, width) => sum + width, 0) * 0}
-            y={0}
-            variant="dark"
-            state="normal"
-            borderRadius={12}
-            showBorder={true}
-            showShadow={false}
-            borderColor="#2563eb"
-            borderWidth={2}
-            backgroundColor="#000000"
-        />
+		<UiSprite
+			width={LANDSCAPE_BACKGROUND_WIDTH_LIST.reduce((sum, width) => sum + width, 0)}
+			height={LANDSCAPE_BASE_SIZE * 0.9}
+			x={-LANDSCAPE_BACKGROUND_WIDTH_LIST.reduce((sum, width) => sum + width, 0) * 0}
+			y={0}
+			variant="dark"
+			state="normal"
+			borderRadius={12}
+			showBorder={true}
+			showShadow={false}
+			borderColor="#2563eb"
+			borderWidth={2}
+			backgroundColor="#000000"
+		/>
 
 
-		<Container y={LANDSCAPE_BASE_SIZE * +0.2} x={560} scale={1}>
+		<Container y={LANDSCAPE_BASE_SIZE * -2.5 + 480} x={560} scale={1.2}>
 			{@render props.amountBalance({ stacked: true })}
 		</Container>
 
-		<Container y={LANDSCAPE_BASE_SIZE * -2.5 + 495} x={85 + 20} scale={0.8}>
+		<Container y={LANDSCAPE_BASE_SIZE * -2.5 + 495} x={155 - 20} scale={0.8}>
 			{@render props.buttonMenu({ anchor: 0.5 })}
 		</Container>
 
@@ -63,15 +63,15 @@
 
 
 
-		<Container y={LANDSCAPE_BASE_SIZE * -2.5 + 460} x={948} scale={0.75}>
+		<Container y={LANDSCAPE_BASE_SIZE * -2.5 + 480} x={918} scale={1.2}>
 			{@render props.amountBet({ stacked: true })}
 		</Container>
 
-		<Container  y={LANDSCAPE_BASE_SIZE * -2.5 + 494} x={840} scale={0.35}>
+		<Container  y={LANDSCAPE_BASE_SIZE * -2.5 + 524} x={1155} scale={0.35}>
 			{@render props.buttonDecrease({ anchor: 0.5 })}
 		</Container>
 
-		<Container  y={LANDSCAPE_BASE_SIZE * -2.5 + 494} x={1055} scale={0.35}>
+		<Container  y={LANDSCAPE_BASE_SIZE * -2.5 + 464} x={1155} scale={0.35}>
 			{@render props.buttonIncrease({ anchor: 0.5 })}
 		</Container>
 	</Container>

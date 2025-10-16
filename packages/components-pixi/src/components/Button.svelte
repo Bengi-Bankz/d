@@ -25,12 +25,14 @@
 		onpress: () => void;
 		disabled?: boolean;
 		anchor?: PixiPoint;
+		glowVariant?: string;
 		children: Snippet<
 			[
 				{
 					center: { x: number; y: number };
 					hovered: boolean;
 					pressed: boolean;
+					glowVariant?: string;
 				},
 			]
 		>;
@@ -39,7 +41,7 @@
 </script>
 
 <script lang="ts">
-	const { children, sizes, anchor, disabled, onpress, debug, ...containerProps }: Props = $props();
+	const { children, sizes, anchor, disabled, onpress, debug, glowVariant, ...containerProps }: Props = $props();
 	const center = $derived({
 		x: sizes.width * 0.5,
 		y: sizes.height * 0.5,
@@ -88,5 +90,5 @@
 			borderColor={0xffffff}
 		/>
 	{/if}
-	{@render children({ center, hovered, pressed })}
+	{@render children({ center, hovered, pressed, glowVariant })}
 </Container>

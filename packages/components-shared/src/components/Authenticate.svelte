@@ -3,7 +3,7 @@
 
 	import { requestAuthenticate } from 'rgs-requests';
 	import { stateUrlDerived, stateBet, stateConfig, stateModal } from 'state-shared';
-	import { API_AMOUNT_MULTIPLIER, MOST_USED_BET_INDEXES } from 'constants-shared/bet';
+	import { API_AMOUNT_MULTIPLIER } from 'constants-shared/bet';
 
 	type Props = { children: Snippet };
 
@@ -31,6 +31,15 @@
 				// },
 				stateBet.currency = authenticateData.balance.currency;
 				stateBet.balanceAmount = authenticateData.balance.amount / API_AMOUNT_MULTIPLIER;
+			}
+
+			// Set default bet amount if no active round and defaultBetLevel is present
+			if (
+				authenticateData?.config?.defaultBetLevel &&
+				(!authenticateData?.round || !authenticateData.round.amount)
+			) {
+				stateBet.betAmount = authenticateData.config.defaultBetLevel / API_AMOUNT_MULTIPLIER;
+				stateBet.wageredBetAmount = authenticateData.config.defaultBetLevel / API_AMOUNT_MULTIPLIER;
 			}
 
 			// config
@@ -63,9 +72,8 @@
 				stateConfig.betAmountOptions = (authenticateData.config?.betLevels || []).map(
 					(level) => level / API_AMOUNT_MULTIPLIER,
 				);
-				stateConfig.betMenuOptions = stateConfig.betAmountOptions.filter((_, index) =>
-					MOST_USED_BET_INDEXES.includes(index),
-				);
+				// Show all available bet amounts from RGS, not just filtered subset
+				stateConfig.betMenuOptions = stateConfig.betAmountOptions;
 			}
 
 			// round

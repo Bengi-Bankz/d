@@ -42,9 +42,9 @@
 	// Glow colors for different variants
 	const glowColors = {
 		'glow-green': '#00ff41',
-		'glow-blue': '#2563eb',
-		'glow-purple': '#7c3aed',
-		'glow-orange': '#ea580c',
+		'glow-blue': '#00ff41',
+		'glow-purple': '#00ff41',
+		'glow-orange': '#00ff41',
 		'glow-pink': '#ec4899'
 	};
 
@@ -57,7 +57,7 @@
 		// Glow variants with semi-transparent backgrounds
 		if (variant.startsWith('glow-')) {
 			const baseColor = glowColors[variant as keyof typeof glowColors];
-			return state === 'hover' ? baseColor + '40' : baseColor + '20'; // 25% and 12.5% opacity
+			return state === 'hover' ? baseColor + '40' : baseColor + '10'; // 25% and 12.5% opacity
 		}
 
 		switch (variant) {

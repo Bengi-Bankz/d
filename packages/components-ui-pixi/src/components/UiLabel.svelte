@@ -58,11 +58,11 @@
 			state={props.state || 'normal'}
 		/>
 	{/if}
-	<Text anchor={{ x: 0, y: 0.5 }} text={props.label} style={labelStyle} />
+	<Text anchor={{ x: 0, y: 0.5 }} text={props.label} style={labelStyle} x={-50} />
 	<Text
 		anchor={{ x: 1, y: 0.5 }}
 		text={props.value}
 		style={valueStyle}
-		x={props.small ? UI_BASE_FONT_SIZE * 3.2 : UI_BASE_FONT_SIZE * 6}
+		x={props.small ? UI_BASE_FONT_SIZE * 2.2 : UI_BASE_FONT_SIZE * 4}
 	/>
 {/if}
