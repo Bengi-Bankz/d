@@ -34,7 +34,7 @@ export default () =>
 					path.resolve(__dirname, '../../apps/scatter/src'),
 					path.resolve(__dirname, '../../apps/scatter/node_modules'),
 					path.resolve(__dirname, '../../node_modules'),
-				]
-			}
-		}
+				],
+			},
+		},
 	});
