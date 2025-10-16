@@ -1,1 +1,8 @@
 @import 'tailwindcss';
+
+@font-face {
+	font-family: 'Bangers-Regular';
+	src: url('/Bangers-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}

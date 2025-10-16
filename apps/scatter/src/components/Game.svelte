@@ -34,9 +34,30 @@ const dispatch = createEventDispatcher();
 	import FreeSpinOutro from './FreeSpinOutro.svelte';
 	import Transition from './Transition.svelte';
 
+	import { scatterLandedThisRound } from '../stores/scatterLandedThisRound';
+	import { onDestroy } from 'svelte';
+
 	const context = getContext();
 
 	onMount(() => (context.stateLayout.showLoadingScreen = true));
+
+	// Subscribe to scatterLandedThisRound and trigger shake on change
+	let scatterUnsub = scatterLandedThisRound.subscribe((count) => {
+		if (count > 0) {
+			triggerShake({ type: 'slam', magnitude: 15, duration: 400 });
+		}
+	});
+
+	onDestroy(() => {
+		scatterUnsub();
+	});
+
+	// Reset scatterLandedThisRound at the start of each round
+	function startNewRound() {
+		scatterLandedThisRound.set(0);
+		// ...other round start logic...
+	}
+	// Call startNewRound() wherever your round logic begins
 
 	context.eventEmitter.subscribeOnMount({
 		buyBonusConfirm: () => {

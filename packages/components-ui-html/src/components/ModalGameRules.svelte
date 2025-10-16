@@ -28,21 +28,21 @@
 
 <style>
 	:global(h2, h3, p, li) {
-		font-family: 'TradeWinds-Regular', sans-serif;
-		color: #228B22;
+		font-family: 'Bangers-Regular', sans-serif;
+		color: #00fff0;
 	}
 	h2 {
-		font-size: 1.5rem;
+		font-size: 2rem;
 		font-weight: 600;
 	}
 	h3 {
-		font-size: 1.55rem;
+		font-size: 1.85rem;
 		margin-top: 16px;
 		font-weight: 500;
 	}
 	p,
 	li {
-		font-size: 0.95rem;
+		font-size: 1.25rem;
 		line-height: 1.5;
 	}
 	ul {

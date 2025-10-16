@@ -13,13 +13,7 @@
 	const context = getContext();
 </script>
 
-<Container x={20} y={80}>
-	{@render props.gameName()}
-</Container>
 
-<Container x={context.stateLayoutDerived.canvasSizes().width - 20} y={20} scale={0.4}>
-	{@render props.logo()}
-</Container>
 
 
 <MainContainer standard alignVertical="bottom">
@@ -34,30 +28,15 @@
 			},
 		})}
 	>
+		<Container y={DESKTOP_BASE_SIZE * .70} x={840 - 145} scale={0.9}>
+			{@render props.amountBet({ stacked: true })}
+		</Container>
 
-<UiSprite
-	width={DESKTOP_BACKGROUND_WIDTH_LIST.reduce((sum, width) => sum + width, 0)}
-	height={DESKTOP_BASE_SIZE}
-	x={-DESKTOP_BACKGROUND_WIDTH_LIST.reduce((sum, width) => sum + width, 0) * -0}
-	y={0}
-	variant="dark"
-	state="normal"
-	borderRadius={12}
-	showBorder={true}
-	showShadow={false}
-	borderColor="#2563eb"
-	borderWidth={2}
-	backgroundColor="#000000"
-/>
-
-<Container y={DESKTOP_BASE_SIZE * 0.5 - 50} x={840 - 545} scale={.8}>
+<Container y={DESKTOP_BASE_SIZE * 0.5 - 15} x={840 - 545} scale={.9}>
 			{@render props.amountBalance({ stacked: true })}
 		</Container>
 
 
-		<Container y={DESKTOP_BASE_SIZE * .25} x={380 + 520} scale={0.7}>
-			{@render props.amountBet({ stacked: true })}
-		</Container>
 		<Container y={DESKTOP_BASE_SIZE * 0.5} x={90} scale={0.7}>
 			{@render props.buttonMenu({ anchor: 0.5 })}
 		</Container>
@@ -107,22 +86,22 @@
 
 	<MainContainer standard alignVertical="bottom">
 		<Container
-			x={298}
+			x={170}
 			y={context.stateLayoutDerived.mainLayoutStandard().height - DESKTOP_BASE_SIZE - 10}
 		>
-			<Container scale={0.8} y={DESKTOP_BASE_SIZE * 0.5 - 150 - 170 * 3}>
+			<Container scale={0.8} y={DESKTOP_BASE_SIZE * 0.5 - 110 - 95 * 3}>
 				{@render props.buttonPayTable({ anchor: 0.5 })}
 			</Container>
 
-			<Container scale={0.8} y={DESKTOP_BASE_SIZE * 0.5 - 150 - 170 * 2}>
+			<Container scale={0.8} y={DESKTOP_BASE_SIZE * 0.5 - 5 - 145 * 2}>
 				{@render props.buttonGameRules({ anchor: 0.5 })}
 			</Container>
 
-			<Container scale={0.8} y={DESKTOP_BASE_SIZE * 0.5 - 150 - 170 * 1}>
+			<Container scale={0.8} y={DESKTOP_BASE_SIZE * 0.5 - 30 - 170 * 1}>
 				{@render props.buttonSettings({ anchor: 0.5 })}
 			</Container>
 
-			<Container scale={0.8} y={DESKTOP_BASE_SIZE * 0.5 - 150}>
+			<Container scale={0.8} y={DESKTOP_BASE_SIZE * 0.5 - 110}>
 				{@render props.buttonSoundSwitch({ anchor: 0.5 })}
 			</Container>
 

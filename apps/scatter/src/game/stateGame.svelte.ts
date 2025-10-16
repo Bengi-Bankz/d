@@ -7,6 +7,7 @@ import { createGetWinLevelDataByWinLevelAlias } from 'utils-shared/winLevel';
 
 import type { GameType, RawSymbol, SymbolState } from './types';
 import { stateLayoutDerived } from './stateLayout';
+import { scatterLandedThisRound } from '../stores/scatterLandedThisRound';
 import { winLevelMap } from './winLevelMap';
 import { eventEmitter } from './eventEmitter';
 import {
@@ -27,6 +28,8 @@ const onSymbolLand = ({ rawSymbol }: { rawSymbol: RawSymbol }) => {
 			type: 'soundOnce',
 			name: SCATTER_LAND_SOUND_MAP[scatterLandIndex()],
 		});
+		// Increment scatter landed store for shake effect
+		scatterLandedThisRound.update(n => n + 1);
 	}
 
 	if (rawSymbol.name === 'M') {

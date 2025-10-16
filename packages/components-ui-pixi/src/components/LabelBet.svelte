@@ -22,7 +22,7 @@
 		const activeBetMode = stateBetDerived.activeBetMode();
 		if (activeBetMode?.key === 'ANTEBET') return 'glow-orange';
 		if (activeBetMode?.type === 'activate') return 'glow-purple';
-		return 'glow-green';
+		return 'glow-purple';
 	});
 
 	// Calculate state based on disabled status
@@ -42,8 +42,9 @@
 		tiled 
 		{label} 
 		{value} 
-		stacked={props.stacked}
+		stacked={false}
 		glowVariant={glowVariant()}
 		state={labelState()}
+		small={true}
 	/>
 </Container>

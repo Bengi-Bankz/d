@@ -121,12 +121,12 @@
 		margin-bottom: 12px;
 	}
 	.paytable-desc {
-		color: #228B22;
+		color: #00fff0;
 		font-size: 2rem;
 		font-weight: 500;
 		text-align: center;
-		font-family: 'TradeWinds-Regular', sans-serif;
-		line-height: 1.4;
+		font-family: 'Bangers-Regular', sans-serif;
+		line-height: 1.6;
 	}
 
 	@media (max-width: 700px) {

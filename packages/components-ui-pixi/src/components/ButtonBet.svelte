@@ -84,7 +84,7 @@
                         <Sprite
                             key="stop"
                             anchor={0.5}
-                            scale={0.65}
+                            scale={0.5}
                         />
                         <Text
                             anchor={0.5}
@@ -104,7 +104,7 @@
                             width={sizes.width}
                             height={sizes.height}
                             anchor={0.5}
-                            scale={0.65}
+                            scale={0.5}
                         />
                         <Text
                             anchor={0.5}

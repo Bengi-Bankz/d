@@ -35,6 +35,26 @@ export default {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/19-27/27.png', import.meta.url).href,
 	},
+	bg: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/backgrounds/bg.webp', import.meta.url).href,
+		preload: true,
+	},
+	bg2: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/backgrounds/bg2.webp', import.meta.url).href,
+		preload: true,
+	},
+	bg3: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/backgrounds/bg3.webp', import.meta.url).href,
+		preload: true,
+	},
+	bg4: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/backgrounds/bg4.webp', import.meta.url).href,
+		preload: true,
+	},
 	loader: {
 		type: 'spine',
 		src: {
@@ -180,41 +200,41 @@ export default {
 	},
 	auto: {
 		type: 'sprite',
-		src: new URL('../../assets/fonts/auto/auto.webp', import.meta.url).href,
+		src: new URL('../../assets/fonts/icons/auto.webp', import.meta.url).href,
 	},
 
 	turboon: {
 		type: 'sprite',
-		src: new URL('../../assets/fonts/turboon/turboon.webp', import.meta.url).href,
+		src: new URL('../../assets/fonts/icons/turboon.webp', import.meta.url).href,
 	},
 	turbooff: {
 		type: 'sprite',
-		src: new URL('../../assets/fonts/turbooff/turbooff.webp', import.meta.url).href,
+		src: new URL('../../assets/fonts/icons/turbooff.webp', import.meta.url).href,
 	},
 	menu: {
 		type: 'sprite',
-		src: new URL('../../assets/fonts/menu/menu.webp', import.meta.url).href,
+		src: new URL('../../assets/fonts/icons/menu.webp', import.meta.url).href,
 	},
 	play: {
 		type: 'sprite',
-		src: new URL('../../assets/fonts/play/play.webp', import.meta.url).href,
+		src: new URL('../../assets/fonts/icons/play.webp', import.meta.url).href,
 	},
 	beehive: {
 		type: 'sprite',
-		src: new URL('../../assets/fonts/beehive/beehive.webp', import.meta.url).href,
+		src: new URL('../../assets/fonts/icons/beehive.webp', import.meta.url).href,
 	},
 
 	stop: {
 		type: 'sprite',
-		src: new URL('../../assets/fonts/stop/stop.webp', import.meta.url).href,
+		src: new URL('../../assets/fonts/icons/stop.webp', import.meta.url).href,
 	},
 	increase: {
 		type: 'sprite',
-		src: new URL('../../assets/fonts/increase/increase.webp', import.meta.url).href,
+		src: new URL('../../assets/fonts/icons/increase.webp', import.meta.url).href,
 	},
 	decrease: {
 		type: 'sprite',
-		src: new URL('../../assets/fonts/decrease/decrease.webp', import.meta.url).href,
+		src: new URL('../../assets/fonts/icons/decrease.webp', import.meta.url).href,
 	},
 
 	goldBlur: {
@@ -323,11 +343,7 @@ export default {
 			scale: 2,
 		},
 	},
-	progressBar: {
-		type: 'sprites',
-		src: new URL('../../assets/sprites/progressBar/progressBar.json', import.meta.url).href,
-		preload: true,
-	},
+
 	freeSpins: {
 		type: 'sprites',
 		src: new URL('../../assets/sprites/freeSpins/freeSpins.json', import.meta.url).href,
