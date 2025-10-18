@@ -1,3 +1,5 @@
+import type progressBar from '../../static/assets/sprites/progressBar';
+
 export default {
 	S_19: {
 		type: 'sprite',
@@ -228,6 +230,15 @@ export default {
 		type: 'sprite',
 		src: new URL('../../assets/fonts/icons/stop.webp', import.meta.url).href,
 	},
+
+	volx: {
+		type: 'sprite',
+		src: new URL('../../assets/fonts/icons/volx.webp', import.meta.url).href,
+	},
+	volo: {
+		type: 'sprite',
+		src: new URL('../../assets/fonts/icons/volo.webp', import.meta.url).href,
+	},
 	increase: {
 		type: 'sprite',
 		src: new URL('../../assets/fonts/icons/increase.webp', import.meta.url).href,
@@ -244,10 +255,6 @@ export default {
 	silverFont: {
 		type: 'font',
 		src: new URL('../../assets/fonts/silverFont/mm_silver.xml', import.meta.url).href,
-	},
-	MoneyFont3: {
-		type: 'font',
-		src: new URL('../../assets/fonts/MoneyFont3/MoneyFont3.xml', import.meta.url).href,
 	},
 	purpleFont: {
 		type: 'font',
@@ -384,6 +391,11 @@ export default {
 	sound: {
 		type: 'audio',
 		src: new URL('../../assets/audio/sounds.json', import.meta.url).href,
+		preload: true,
+	},
+	progressBar: {
+		type: 'sprite',
+		src: new URL('../../assets/spines/progressBar/progressBar.webp.json', import.meta.url).href,
 		preload: true,
 	},
 } as const;

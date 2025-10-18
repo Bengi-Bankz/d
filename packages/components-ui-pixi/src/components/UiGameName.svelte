@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { SvelteDate } from 'svelte/reactivity';
 
-	import { Text, REM } from 'pixi-svelte';
+	import { Text, REM, Sprite } from 'pixi-svelte';
 	import { WHITE } from 'constants-shared/colors';
 
 	type Props = {
@@ -19,7 +19,7 @@
 	);
 	const textProps = {
 		style: {
-			   fontFamily: 'Tradewinds-Regular, sans-serif',
+			   fontFamily: 'Bangers-Regular, sans-serif',
 			fontSize: REM * 1.5,
 			fontWeight: '600',
 			lineHeight: REM * 2,
@@ -42,3 +42,4 @@
 
 <Text text={clock} onresize={(value) => (clockSizes = value)} {...textProps} />
 <Text text={props.name} x={clockSizes.width + 5} {...textProps} />
+<Sprite key="gamelogo" x={clockSizes.width + 220} y={-10} width={180} height={80} anchor={0.5} />

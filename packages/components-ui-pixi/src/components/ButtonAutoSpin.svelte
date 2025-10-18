@@ -12,12 +12,8 @@
 	const context = getContext();
 	const sizes = { width: UI_BASE_SIZE, height: UI_BASE_SIZE };
 	const active = $derived(stateBetDerived.hasAutoBetCounter());
-	const disabled = $derived.by(() => {
-		if (stateBet.isSpaceHold) return true;
-		if (!context.stateXstateDerived.isIdle() && !stateBetDerived.hasAutoBetCounter()) return true;
-		if (!stateBetDerived.isBetCostAvailable()) return true;
-		return false;
-	});
+	// Always enabled
+	const disabled = $derived(() => false);
 
 	const stopAutoSpin = () => (stateBet.autoSpinsCounter = 0);
 	const openModal = () => (stateModal.modal = { name: 'autoSpin' });
@@ -26,18 +22,14 @@
 		stateBetDerived.hasAutoBetCounter() ? stopAutoSpin() : openModal();
 	};
 
-	// Calculate glow variant based on auto spin state
-	const buttonVariant = $derived(() => {
-		if (disabled) return 'dark';
-		return active ? 'glow-pink' : 'glow-purple';
-	});
+	// Use fixed blue glow variant
+	const buttonVariant = $derived(() => 'glow-blue');
 </script>
 <UiButton
 	{...props}
 	{sizes}
 	{active}
 	{onpress}
-	{disabled}
 	variant={buttonVariant()}
 >
 	<Sprite key="auto" width={sizes.width} height={sizes.height} anchor={0} />

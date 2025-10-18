@@ -15,7 +15,8 @@
 	const context = getContext();
 	const label = $derived(stateBetDerived.activeBetMode()?.text.betAmountLabel || i18nDerived.bet());
 	const value = $derived(numberToCurrencyString(stateBetDerived.betCost()));
-	const disabled = $derived(!context.stateXstateDerived.isIdle());
+	// Always enabled
+	const disabled = $derived(() => false);
 
 	// Calculate glow variant based on bet mode
 	const glowVariant = $derived(() => {
@@ -25,19 +26,16 @@
 		return 'glow-purple';
 	});
 
-	// Calculate state based on disabled status
-	const labelState = $derived(() => {
-		return disabled ? 'disabled' : 'normal';
-	});
+	// Always normal state
+	const labelState = $derived(() => 'normal');
 
 	const onpress = () => {
-		if (disabled) return;
 		context.eventEmitter.broadcast({ type: 'soundPressGeneral' });
 		stateModal.modal = { name: 'betAmountMenu' };
 	};
 </script>
 
-<Container eventMode="static" cursor={disabled ? 'not-allowed' : 'pointer'} onpointerup={onpress}>
+<Container eventMode="static" cursor="pointer" onpointerup={onpress}>
 	<UiLabel 
 		tiled 
 		{label} 

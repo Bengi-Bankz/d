@@ -11,7 +11,8 @@
     const context = getContext();
     const sizes = { width: UI_BASE_SIZE, height: UI_BASE_SIZE };
     const biggest = $derived(stateConfig.betAmountOptions[stateConfig.betAmountOptions.length - 1]);
-    const disabled = $derived(!context.stateXstateDerived.isIdle() || stateBet.betAmount === biggest);
+    // Always enabled
+    const disabled = $derived(() => false);
 
     const onpress = () => {
         context.eventEmitter.broadcast({ type: 'soundPressGeneral' });
@@ -24,6 +25,6 @@
     };
 </script>
 
-<UiButton {...props} {sizes} {onpress} {disabled} variant="glow-green">
+<UiButton {...props} {sizes} {onpress} variant="glow-green">
     <Sprite key="increase" width={sizes.width * 1} height={sizes.height * 1} anchor={-0.} />
 </UiButton>

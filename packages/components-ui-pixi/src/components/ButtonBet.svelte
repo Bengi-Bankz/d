@@ -11,7 +11,8 @@
     import { WHITE, DISABLED_SECONDARY } from 'constants-shared/colors';
 
     const props: Partial<Omit<ButtonProps, 'children'>> = $props();
-    const disabled = $derived(!stateBetDerived.isBetCostAvailable());
+    // Removed disabled logic so button is always enabled
+    const disabled = $derived(() => false);
     // Make the button larger and round
     const BUTTON_SIZE = UI_BASE_SIZE * 1;
     const sizes = { width: BUTTON_SIZE, height: BUTTON_SIZE };
@@ -26,11 +27,8 @@
         return disabled ? DISABLED_SECONDARY : WHITE;
     });
 
-    // Calculate button variant based on bonus state
-    const buttonVariant = $derived(() => {
-        if (disabled) return 'dark';
-        return isBonusActive() ? 'glow-orange' : 'glow-green';
-    });
+    // Use fixed button variant for all states
+    const buttonVariant = $derived(() => 'glow-blue');
 
     // Make the button perfectly round
     const borderRadius = $derived(() => BUTTON_SIZE / 2);
@@ -38,12 +36,11 @@
 
 <ButtonBetProvider>
     {#snippet children({ key, onpress })}
-        <OnHotkey hotkey="Space" {disabled} {onpress} />
+        <OnHotkey hotkey="Space" {onpress} />
         <Button
             {...props}
             {sizes}
             {onpress}
-            {disabled}
             class="bet-round-btn"
         >
             {#snippet children({ center, hovered, pressed })}
@@ -55,7 +52,7 @@
                     height={sizes.height}
                     borderRadius={borderRadius()}
                     variant={buttonVariant()}
-                    state={disabled ? 'disabled' : pressed ? 'pressed' : hovered ? 'hover' : 'normal'}
+                    state={pressed ? 'pressed' : hovered ? 'hover' : 'normal'}
                 />
                 
                 <!-- Icon and text content -->

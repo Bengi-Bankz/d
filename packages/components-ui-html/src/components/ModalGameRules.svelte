@@ -167,6 +167,7 @@
 										<img src={img26} alt="Did Not Inhale Spins" />
 									</div>
 								</div>
+								<p style="margin-top:8px; color:#fff;">Take your shot at the bonus round with a lighthearted twist! Landing 4 scatters awards Did Not Inhale Spins, giving you a batch of free spins with boosted win potential. Watch the reels heat up as bonus symbols stack and multipliers rise — your chance to spin your way toward that massive 10,000× max award begins here.</p>
 							</li>
 							<li>
 								5 Scatters → 10 Honest Abe Spins
@@ -180,6 +181,7 @@
 										<img src={img24} alt="Honest Abe Spins" />
 									</div>
 								</div>
+								<p style="margin-top:8px; color:#fff;">Honesty pays off big! Hit 5 scatters to unlock Honest Abe Spins, where the rewards climb even higher. More spins, better odds, and an extra chance for huge multipliers on top-winning combinations. Every spin could bring you closer to the game’s ultimate 10,000× payout cap — stay true, and let the reels deliver.</p>
 							</li>
 							<li>
 								6 Scatters → 12 Osama Killer Spins
@@ -193,6 +195,7 @@
 										<img src={img25} alt="Osama Killer Spins" />
 									</div>
 								</div>
+								<p style="margin-top:8px; color:#fff;">The top-tier bonus for the bold! Land 6 scatters to trigger Osama Killer Spins, the most powerful feature in the game. Packed with enhanced multipliers and maximum spin potential, this round delivers explosive win opportunities with every reel. Reach for that 10,000× max award — it’s the ultimate victory spin!</p>
 							</li>
 						</ul>
 						<p>

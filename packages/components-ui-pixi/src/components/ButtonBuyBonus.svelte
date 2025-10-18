@@ -12,7 +12,8 @@
 	const props: Partial<Omit<ButtonProps, 'children'>> = $props();
 	const { stateXstateDerived, eventEmitter } = getContext();
 	const sizes = { width: UI_BASE_SIZE, height: UI_BASE_SIZE };
-	const disabled = $derived(!stateXstateDerived.isIdle());
+	// Removed disabled logic so button is always enabled
+	const disabled = $derived(() => false);
 	const active = $derived(stateBetDerived.activeBetMode()?.type === 'activate');
 
 	// Calculate text color based on state
@@ -20,11 +21,8 @@
 		return disabled ? DISABLED_SECONDARY : WHITE;
 	});
 
-	// Calculate button variant based on active state
-	const buttonVariant = $derived(() => {
-		if (disabled) return 'dark';
-		return active ? 'glow-orange' : 'glow-purple';
-	});
+	// Use fixed button variant for all states
+	const buttonVariant = $derived(() => 'glow-blue');
 
 	const openModal = () => (stateModal.modal = { name: 'buyBonus' });
 	const disableActiveBetMode = () => (stateBet.activeBetModeKey = 'BASE');
@@ -52,11 +50,10 @@
 	};
 </script>
 
-<Button {...props} {sizes} {disabled} {onpress} shape="pill">
+<Button {...props} {sizes} {onpress} shape="pill">
 	{#snippet children({ center, hovered, pressed })}
 		{@const state = getState({
 			active,
-			disabled,
 			hovered,
 			pressed,
 		})}
@@ -68,7 +65,7 @@
 			width={sizes.width}
 			height={sizes.height}
 			variant={buttonVariant()}
-			state={disabled ? 'disabled' : pressed ? 'pressed' : hovered ? 'hover' : 'normal'}
+			state={pressed ? 'pressed' : hovered ? 'hover' : 'normal'}
 			showBorder={true}
 			showShadow={true}
 			borderRadius={18}

@@ -19,7 +19,7 @@ export const i18nDerived = {
 	autoSpinsStopInfo: () => stateI18nDerived.translate('AUTO PLAY HAS STOPPED DUE TO'),
 	insufficientFunds: () =>
 		stateI18nDerived.translate(
-			'INSUFFICIENT FUNDS TO PLACE THIS SPIN. PLEASE ADD FUNDS TO YOUR ACCOUNT OR LOWER THE SPIN AMOUNT.',
+			'INSUFFICIENT  TOKENS TO PLACE THIS SPIN. PLEASE ADD TOKENS TO YOUR ACCOUNT OR LOWER THE SPIN AMOUNT.',
 		),
 	lossLimitReached: () => stateI18nDerived.translate('LIMIT REACHED'),
 	singleWinLimitReached: () => stateI18nDerived.translate('SINGLE WIN LIMIT REACHED'),
