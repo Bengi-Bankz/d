@@ -86,7 +86,7 @@
                 <Container {...center}>
                     {#if ['spin_default', 'spin_disabled'].includes(key)}
                         <Sprite
-                            key="play"
+                            key="play01"
                             width={sizes.width}
                             height={sizes.height}
                             anchor={0.5}

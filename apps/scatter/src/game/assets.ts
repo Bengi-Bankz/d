@@ -73,6 +73,12 @@ export default {
 			.href,
 		preload: true,
 	},
+	ui: {
+		type: 'sprites',
+		src: new URL('../../assets/sprites/ui/ui.webp.json', import.meta.url).href,
+		preload: true,
+	},
+
 	H1: {
 		type: 'spine',
 		src: {
@@ -185,6 +191,11 @@ export default {
 		type: 'sprite',
 		src: new URL('../../assets/fonts/trashcan/trashcan.png', import.meta.url).href,
 	},
+	play01: {
+		type: 'sprite',
+		src: new URL('../../assets/fonts/play01/play01.png', import.meta.url).href,
+	},
+
 	payFrame: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/payFrame/payFrame.png', import.meta.url).href,
@@ -230,15 +241,6 @@ export default {
 	stop: {
 		type: 'sprite',
 		src: new URL('../../assets/fonts/icons/stop.webp', import.meta.url).href,
-	},
-
-	volx: {
-		type: 'sprite',
-		src: new URL('../../assets/fonts/icons/volx.webp', import.meta.url).href,
-	},
-	volo: {
-		type: 'sprite',
-		src: new URL('../../assets/fonts/icons/volo.webp', import.meta.url).href,
 	},
 	increase: {
 		type: 'sprite',
