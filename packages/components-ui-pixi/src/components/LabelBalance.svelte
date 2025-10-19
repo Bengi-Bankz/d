@@ -19,4 +19,4 @@
     });
 </script>
 
-<UiLabel {label} {value} stacked={false} tiled small={true} glowVariant="glow-green" />
+<UiLabel {label} {value} stacked={props.stacked} small={false} glowVariant="glow-green" spriteKey="balance" />

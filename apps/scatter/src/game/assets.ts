@@ -195,7 +195,14 @@ export default {
 		type: 'sprite',
 		src: new URL('../../assets/fonts/play01/play01.png', import.meta.url).href,
 	},
-
+	balance: {
+		type: 'sprite',
+		src: new URL('../../assets/fonts/balance/balance.png', import.meta.url).href,
+	},
+	spin: {
+		type: 'sprite',
+		src: new URL('../../assets/fonts/spin/spin.png', import.meta.url).href,
+	},
 	payFrame: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/payFrame/payFrame.png', import.meta.url).href,

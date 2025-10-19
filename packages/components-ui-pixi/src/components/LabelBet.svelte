@@ -36,13 +36,13 @@
 </script>
 
 <Container eventMode="static" cursor="pointer" onpointerup={onpress}>
-	<UiLabel 
-		tiled 
-		{label} 
-		{value} 
-		stacked={false}
+	<UiLabel
+		{label}
+		{value}
+		stacked={props.stacked}
 		glowVariant={glowVariant()}
 		state={labelState()}
-		small={true}
+		small={false}
+		spriteKey="spin"
 	/>
 </Container>

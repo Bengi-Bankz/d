@@ -47,8 +47,8 @@
 		/>
 
 
-		<Container y={LANDSCAPE_BASE_SIZE * -2.5 + 480} x={560} scale={1.2}>
-			{@render props.amountBalance({ stacked: true })}
+		<Container y={LANDSCAPE_BASE_SIZE * -2.5 + 480} x={460} scale={1.2}>
+			{@render props.amountBalance({ stacked: false })}
 		</Container>
 
 				<Container y={LANDSCAPE_BASE_SIZE * -2.5 + 300} x={1550} scale={1.2}>
@@ -67,8 +67,8 @@
 
 
 
-		<Container y={LANDSCAPE_BASE_SIZE * -2.5 + 480} x={918} scale={1.2}>
-			{@render props.amountBet({ stacked: true })}
+		<Container y={LANDSCAPE_BASE_SIZE * -2.5 + 480} x={818} scale={1.2}>
+			{@render props.amountBet({ stacked: false })}
 		</Container>
 
 		<Container  y={LANDSCAPE_BASE_SIZE * -2.5 + 524} x={1155} scale={0.35}>

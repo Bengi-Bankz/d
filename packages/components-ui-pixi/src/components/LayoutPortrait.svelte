@@ -24,7 +24,7 @@
 		y={1620}
 		scale={1.2}
 	>
-		{@render props.amountBalance({ stacked: true })}
+	{@render props.amountBalance({ stacked: false })}
 	</Container>
 
 	<Container
@@ -32,7 +32,7 @@
 		y={1620}
 		scale={1.2}
 	>
-		{@render props.amountBet({ stacked: true })}
+	{@render props.amountBet({ stacked: false })}
 	</Container>
 
 	<Container

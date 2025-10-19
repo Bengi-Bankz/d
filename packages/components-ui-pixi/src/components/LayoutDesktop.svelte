@@ -28,15 +28,15 @@
 			},
 		})}
 	>
-		<Container y={DESKTOP_BASE_SIZE * -.55} x={1700} scale={0.9}>
+		<Container y={DESKTOP_BASE_SIZE * -3.25} x={1550} scale={0.9}>
 			{@render props.amountBet({ stacked: true })}
 		</Container>
 
-		<Container y={DESKTOP_BASE_SIZE * 0.5 - 205} x={1700} scale={0.9}>
+		<Container y={DESKTOP_BASE_SIZE * 0.5 - 905} x={1550} scale={0.9}>
 			{@render props.amountBalance({ stacked: true })}
 		</Container>
 
-<Container y={DESKTOP_BASE_SIZE * 0.5 - 405} x={1600} scale={0.9}>
+<Container y={DESKTOP_BASE_SIZE * 0.5 - 705} x={1550} scale={0.9}>
 			{@render props.amountWin({ stacked: true })}
 		</Container>
 
