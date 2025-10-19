@@ -11,7 +11,7 @@
 </script>
 
 <LoaderBase
-	maxWidth={200}
+	maxWidth={800}
 	backgroundColor={'#000000'}
 	timeout={2000}
 	src={props.src}
@@ -19,7 +19,7 @@
 />
 
 {#if showText}
-	<span class="add-your-loader">Add Your Loader</span>
+	<span class="add-your-loader"></span>
 {/if}
 
 <style lang="scss">
