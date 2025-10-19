@@ -1,6 +1,3 @@
-import type MoneyFont3 from '../../static/assets/fonts/MoneyFont3';
-import type progressBar from '../../static/assets/sprites/progressBar';
-
 export default {
 	S_19: {
 		type: 'sprite',
