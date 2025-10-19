@@ -155,7 +155,7 @@ const dispatch = createEventDispatcher();
 
       <UI>
         {#snippet gameName()}
-          <UiGameName name="POP" />
+          <UiGameName name="DEAF PRESIDENTS" />
         {/snippet}
         {#snippet logo()}
           <Text
