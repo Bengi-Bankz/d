@@ -40,11 +40,8 @@
 	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* active:shadow */
 	color: #ef4444; /* active:text-red-500 */
 }
+
 @font-face {
 	font-family: 'Bangers-Regular';
-	src: url('/Bangers-Regular.ttf') format('truetype');
-}
-@font-face {
-	font-family: 'BebasNeue-Regular';
-	src: url('../../../../apps/scatter/static/BebasNeue-Regular.ttf') format('truetype');
+	src: url('Bangers-Regular.ttf') format('truetype');
 }

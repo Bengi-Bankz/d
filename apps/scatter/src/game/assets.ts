@@ -1,3 +1,4 @@
+import type MoneyFont3 from '../../static/assets/fonts/MoneyFont3';
 import type progressBar from '../../static/assets/sprites/progressBar';
 
 export default {
@@ -196,9 +197,9 @@ export default {
 			scale: 2,
 		},
 	},
-	goldFont: {
+	MoneyFont3: {
 		type: 'font',
-		src: new URL('../../assets/fonts/goldFont/mm_gold.xml', import.meta.url).href,
+		src: new URL('../../assets/fonts/MoneyFont3/MoneyFont3.xml', import.meta.url).href,
 	},
 	auto: {
 		type: 'sprite',

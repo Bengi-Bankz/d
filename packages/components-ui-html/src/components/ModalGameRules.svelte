@@ -181,7 +181,7 @@
 										<img src={img24} alt="Honest Abe Spins" />
 									</div>
 								</div>
-								<p style="margin-top:8px; color:#fff;">Honesty pays off big! Hit 5 scatters to unlock Honest Abe Spins, where the rewards climb even higher. More spins, better odds, and an extra chance for huge multipliers on top-winning combinations. Every spin could bring you closer to the game’s ultimate 10,000× payout cap — stay true, and let the reels deliver.</p>
+								<p style="margin-top:8px; color:#fff;">Honesty is the key! Hit 5 scatters to unlock Honest Abe Spins, where the rewards climb even higher. More spins, better odds, and an extra chance for huge multipliers on top-winning combinations. Every spin could bring you closer to the game’s ultimate 10,000× Award cap — stay true, and let the reels deliver.</p>
 							</li>
 							<li>
 								6 Scatters → 12 Osama Killer Spins

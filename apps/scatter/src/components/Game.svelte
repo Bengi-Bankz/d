@@ -6,7 +6,7 @@ const dispatch = createEventDispatcher();
 	import { EnablePixiExtension } from 'components-pixi';
 	import { EnableHotkey } from 'components-shared';
 	import { MainContainer } from 'components-layout';
-	import { App, Text, REM, Container } from 'pixi-svelte';
+	import { App, Text, REM, Container, Sprite } from 'pixi-svelte';
 	import { stateModal } from 'state-shared';
 
 	import { UI, UiGameName } from 'components-ui-pixi';
@@ -111,8 +111,8 @@ const dispatch = createEventDispatcher();
 </script>
 
 <App
-	on:scatterShake={() => triggerShake({ type: 'slam', magnitude: 15, duration: 400 })}
-	on:scatterWinShake={() => triggerShake({ type: 'slam', magnitude: 20, duration: 600 })}
+		on:scatterShake={() => triggerShake({ type: 'slam', magnitude: 15, duration: 400 })}
+		on:scatterWinShake={() => triggerShake({ type: 'slam', magnitude: 20, duration: 600 })}
 >
   <Container position={shakeOffset}>
     <EnableSound />
@@ -155,14 +155,14 @@ const dispatch = createEventDispatcher();
 
       <UI>
         {#snippet gameName()}
-          <UiGameName name="" />
+          <UiGameName name="POP" />
         {/snippet}
         {#snippet logo()}
           <Text
             anchor={{ x: 1, y: 0 }}
             text="Only Spins Studios"
             style={{
-              fontFamily: 'TradeWinds-Regular',
+              fontFamily: 'Bangers-Regular',
               fontWeight: '600',
             }}
           />

@@ -1,4 +1,27 @@
 <script lang="ts">
+    import { onMount, onDestroy } from 'svelte';
+    import { tweened } from 'svelte/motion';
+    import { cubicOut } from 'svelte/easing';
+    // Rotation state for the play button
+    const playRotation = tweened(0, { duration: 400, easing: cubicOut });
+    let playRotationValue = $state(0);
+    const ROTATE_AMOUNT = Math.PI / 4; // 45 degrees
+    let enticeInterval: any;
+
+    // Entice animation: rotate 45° every 10s, then return to 0
+    function enticeRotate() {
+        playRotation.set(ROTATE_AMOUNT);
+        setTimeout(() => playRotation.set(0), 400);
+    }
+
+    onMount(() => {
+        enticeInterval = setInterval(enticeRotate, 10000);
+        const unsub = playRotation.subscribe(v => playRotationValue = v);
+        return () => {
+            clearInterval(enticeInterval);
+            unsub();
+        };
+    });
     import { Container, Text, Sprite } from 'pixi-svelte';
     import { Button, type ButtonProps } from 'components-pixi';
     import { OnHotkey } from 'components-shared';
@@ -40,7 +63,11 @@
         <Button
             {...props}
             {sizes}
-            {onpress}
+            onpress={onpress}
+            on:click={() => {
+                playRotation.set(playRotationValue + ROTATE_AMOUNT);
+                if (typeof onpress === 'function') onpress();
+            }}
             class="bet-round-btn"
         >
             {#snippet children({ center, hovered, pressed })}
@@ -64,6 +91,7 @@
                             height={sizes.height}
                             anchor={0.5}
                             scale={0.50}
+                            rotation={playRotationValue}
                         />
                         <Text
                             anchor={0.5}
