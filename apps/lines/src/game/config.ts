@@ -4,7 +4,7 @@ export default {
 	gameID: '0_0_lines',
 	rtp: 0.97,
 	numReels: 5,
-	numRows: [3, 3, 3, 3, 3],
+	numRows: [5, 5, 5, 5, 5],
 	betModes: {
 		base: {
 			cost: 1.0,

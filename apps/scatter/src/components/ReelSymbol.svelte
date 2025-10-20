@@ -13,13 +13,19 @@
 	const symbolInfo = $derived(
 		getSymbolInfo({ rawSymbol: props.reelSymbol.rawSymbol, state: props.reelSymbol.symbolState }),
 	);
+
+	// Safe fallback for symbolInfo and multiplier/bomb handling
+	const isSpineType = symbolInfo?.type === 'spine';
+	const isLandOrWin = props.reelSymbol.symbolState === 'land' || props.reelSymbol.symbolState === 'win';
+	const multiplier = props.reelSymbol.rawSymbol?.multiplier ?? 1;
+	const isBomb = props.reelSymbol.rawSymbol?.name === 'bomb';
 </script>
 
 <SymbolWrap
 	x={getSymbolX(props.reelIndex)}
 	y={props.reelSymbol.symbolY.current}
-	animating={symbolInfo.type === 'spine' &&
-		(props.reelSymbol.symbolState === 'land' || props.reelSymbol.symbolState === 'win')}
+		animating={!!(symbolInfo && symbolInfo.type === 'spine' &&
+			(props.reelSymbol.symbolState === 'land' || props.reelSymbol.symbolState === 'win'))}
 >
 	<Symbol
 		state={props.reelSymbol.symbolState}

@@ -4,6 +4,7 @@
 	import { stateModal } from 'state-shared';
 
 	import BaseContent from './BaseContent.svelte';
+	import ButtonGlow from './ButtonGlow.svelte';
 </script>
 
 {#if stateModal.modal?.name === 'error'}
@@ -22,6 +23,20 @@
 				{:else}
 					<span>unknown error</span>
 				{/if}
+			</div>
+			<div style="margin-top: 2rem; text-align: center;">
+				<ButtonGlow
+					variant="blue"
+					size="large"
+					shape="pill"
+					onclick={() => {
+						// Reset modal and trigger game refresh logic
+						stateModal.modal = null;
+						window.location.reload();
+					}}
+				>
+					{@html 'Refresh Game'}
+				</ButtonGlow>
 			</div>
 		</BaseContent>
 	</Popup>

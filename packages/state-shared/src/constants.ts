@@ -44,7 +44,7 @@ const DEFAULT_BET_MODE_META = {
 		text: {
 			title: "I DIDN'T INHALE SPINS",
 			dialog:
-				'Triggers FREE SPINS with 4 GUARANTEED SCATTERS for 100x the bet amount. The Global Multiplier can reach up to 64x and remains active for the duration of each spin.',
+				'Triggers FREE SPINS with 4 GUARANTEED SCATTERS for 100x the purchase amount. The Global Multiplier can reach up to 64x and remains active for the duration of each spin.',
 			description: '4 guaranteed scatter symbols for free spins.',
 			button: 'BUY INHALE',
 			tickerIdle: 'PLACE YOUR BET',
@@ -74,7 +74,7 @@ const DEFAULT_BET_MODE_META = {
 		text: {
 			title: 'HONESTLY MINTING SPINS',
 			dialog:
-				'Triggers FREE SPINS with 5 GUARANTEED SCATTERS for 200x the bet amount. The Global Multiplier can reach up to 64x and remains active for the duration of each spin.',
+				'Triggers FREE SPINS with 5 GUARANTEED SCATTERS for 200x the purchase amount. The Global Multiplier can reach up to 64x and remains active for the duration of each spin.',
 			description: '5 guaranteed scatter symbols for enhanced free spins.',
 			button: 'BUY MINTING',
 			tickerIdle: 'PLACE YOUR BET',
@@ -104,7 +104,7 @@ const DEFAULT_BET_MODE_META = {
 		text: {
 			title: 'OSAMA KILLER SPINS',
 			dialog:
-				'Triggers FREE SPINS with 6 GUARANTEED SCATTERS for 500x the bet amount. The Global Multiplier can reach up to 64x and remains active for the duration of each spin.',
+				'Triggers FREE SPINS with 6 GUARANTEED SCATTERS for 500x the purchase amount. The Global Multiplier can reach up to 64x and remains active for the duration of each spin.',
 			description: 'Maximum 6 guaranteed scatter symbols for ultimate free spins potential.',
 			button: 'BUY KILLER',
 			tickerIdle: 'PLACE YOUR BET',
