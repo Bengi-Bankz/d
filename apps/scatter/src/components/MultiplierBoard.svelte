@@ -133,7 +133,7 @@
 			{#if bomb.isActive}
 				{#if bomb.showBackdrop}
 					<Sprite 
-						key="trashcan"
+						key="transition"
 						x={bomb.x}
 						y={bomb.y}
 						anchor={{ x: 0.5, y: 0.5 }}
