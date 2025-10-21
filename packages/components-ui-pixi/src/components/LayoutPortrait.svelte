@@ -23,12 +23,12 @@
 	<!-- Amount Balance and Amount Bet: stacked vertically, but with different x offsets -->
 	<Container>
 		<!-- Amount Balance (left) -->
-		<Container x={context.stateLayoutDerived.canvasSizes().width - 220} y={1410} scale={1.2}>
+		<Container x={context.stateLayoutDerived.canvasSizes().width - 150} y={1430} scale={1.2}>
 			{@render props.amountBalance({ stacked: true })}
 		</Container>
 
 		<!-- Amount Bet (right) -->
-		<Container x={context.stateLayoutDerived.canvasSizes().width + 150} y={1410} scale={1.2}>
+		<Container x={context.stateLayoutDerived.canvasSizes().width + 150} y={1430} scale={1.2}>
 			{@render props.amountBet({ stacked: true })}
 		</Container>
 	</Container>
@@ -165,7 +165,7 @@
 			</Container>
 
 			<Container>
-				{@render props.buttonMenuClose({ anchor: 0.6 })}
+				{@render props.buttonMenuClose({ anchor: 0.5 })}
 			</Container>
 		</Container>
 	</MainContainer>
