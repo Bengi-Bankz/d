@@ -21,7 +21,7 @@
 <SymbolWrap
 	x={getSymbolX(props.reelIndex)}
 	y={props.tumbleSymbol.symbolY.current}
-	animating={symbolInfo.type === 'spine'}
+	animating={symbolInfo && symbolInfo.type === 'spine'}
 >
 	<Symbol
 		state={props.tumbleSymbol.symbolState}

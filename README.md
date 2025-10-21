@@ -4,15 +4,14 @@ This is a web sdk that is convenient for you to develop a game in a declarative 
 
 - How to use: To have 100% freedom to any source code from this repo, start your own codebase based on this repo. You can change any source code as you need.
 
-
 # Table of Contents
 
 - [Get Started](#getStarted)
   - [Installation](#installation)
   - [Run in Storybook](#runInStorybook)
-  - [Run in DEV Mode](#runInDevMode) 
-  - [Build a Game](#buildAGame) 
-  - [Launch a Game](#launchAGame) 
+  - [Run in DEV Mode](#runInDevMode)
+  - [Build a Game](#buildAGame)
+  - [Launch a Game](#launchAGame)
 - [FAQ](#faq)
 - [Dependencies](#dependencies)
 - [Explore Storybook](#exploreStorybook)
@@ -45,6 +44,7 @@ Here is a complete tutorial to start with one of our sample games from storybook
 <a name="installation"></a>
 
 ## Installation
+
 We use [VSCode](https://code.visualstudio.com/download) as IDE but this is optional and it is up to you.
 
 - Install node with version 22.16.0. [download](https://nodejs.org/en/download)
@@ -99,9 +99,11 @@ pnpm run storybook --filter=lines
 - Run `pnpm run storybook --filter=<MODULE_NAME>` in the terminal to see the storybook of a sample game in a TurboRepo way. `<MODULE_NAME>` is the name in the package.json file of a module in apps or packages folders.
 - For example, we have `"name": "lines"` in the [apps/lines/package.json](/apps/lines/package.json), so we can find it and run its storybook.
 - For Windows users, you might need to add the script with "cross-env" to make it work:
+
 ```
 "storybook": "cross-env PUBLIC_CHROMATIC=true storybook dev -p 6001 public",
 ```
+
 - You should see this:
 
 <img src="./documentation/get-started-storybook-run.png" alt="isolated" width="100%"/>
@@ -116,9 +118,11 @@ pnpm run storybook --filter=lines
 <a name="runInDevMode"></a>
 
 ## Run in DEV Mode
+
 ```
 pnpm run dev --filter=lines
 ```
+
 - Open up the url showed in the terminal, you should see this:
 
 <img src="./documentation/get-started-dev.png" alt="isolated" width="100%"/>
@@ -130,6 +134,7 @@ pnpm run dev --filter=lines
 <a name="buildAGame"></a>
 
 ## Build a game
+
 ```
 pnpm run build --filter=lines
 ```
@@ -154,6 +159,7 @@ build
   |-loader.gif
   |-stake-engine-loader.gif
 ```
+
 - Now you are ready to upload a game!
 
 <a name="launchAGame"></a>
@@ -185,13 +191,17 @@ Congratulations! You've completed the tutorial. You can explore the more content
 <a name="faq"></a>
 
 # FAQ
+
 - Q: Would it be possible to use a different programming language or framework, such as using Pixi.js only without Svelte?
+
   - A: You can use anything as long as it compiles to a static website, it is only recommended to use the web-sdk for the easiest development and integration experience as everything is already set up for you, but you can also just fork it or take certain parts of it.
 
 - Q: If we use our own UI/Web SDK, how can we pass configuration data into it?
+
   - A: About how we handle authentication, configuration, jurisdiction and so on, you can find the answers and an example here: [Authenticate.svelte](https://github.com/StakeEngine/web-sdk/blob/main/packages/components-shared/src/components/Authenticate.svelte)
 
 - Q: Do you have any specific policies (or methods) for handling currencies?
+
   - A: Check the function "numberToCurrencyString" in "packages/utils-shared/amount.ts", you will find that any currency that can be handled by "i18n.number" is supported. The currency will be passed in from the authentication request like this "stateBet.currency = authenticateData.balance.currency;". Two special currencies from the social casino like `stake.us` will be handled by "NO_LOCALISATION_CURRENCY_MAP".
 
 - Q: As we are using our own game engine and integrating to RGS with the Web SDK as references. Is there a preference to when "end-round" API gets called? After the winning animation is done or it can be called even before the animations is finished.
@@ -233,23 +243,28 @@ const BET_TYPE_METHODS_MAP = {
 ```
 
 - Q: From what I see, most of the animated graphics seem to be spine, is their any other alternatives that you know of, besides spine?
+
   - A: Spritesheet animation is a good alternative.
-Check out the example of spritesheet animation here: [SpriteSheet.stories.svelte](https://github.com/StakeEngine/web-sdk/blob/main/packages/pixi-svelte-storybook/src/stories/SpriteSheet.stories.svelte)
+    Check out the example of spritesheet animation here: [SpriteSheet.stories.svelte](https://github.com/StakeEngine/web-sdk/blob/main/packages/pixi-svelte-storybook/src/stories/SpriteSheet.stories.svelte)
 
 - Q: Is there a mechanism to switch from a game type (i.e. lines) to another game type (i.e. cluster) as a mechanic?
+
   - A: It's easy. What you can do:
+
     - Create a new "cluster" board in "src/game/stateGame.ts"
     - Add a new bookEvent in your math to tell the game to switch from a "lines" board to a "cluster" board. (Whatever data shape that you need)
     - Add this bookEvent in your "bookEventHandlerMap" and create emitterEvents
     - In "src/components/Board.svelte" subscribe according emitterEvents and then do the switching in a emitterEventHandler
 
     From this example, it shows you that you can basically do anything you want to achieve through this pattern.
+
     - Create a bookEvent
     - Add it to bookEventHandlerMap and create emitterEvents
     - Subscribe emitterEvents in a svelte component
     - Do anything you want
 
 - Q: What are the requirements to launch the same game on social casinos like [stake.us](https://stake.us)?
+
   - A: You will need to add a different set of text for your UI when `social=true` in the query string. For example 'BET' to 'SPIN'. Check the example in the codebase here `packages/components-ui-pixi/src/i18n/i18nDerived.ts`
 
 - Q: When updating things in packages/pixi-svelte, it doesn't seem to take effect. Why is that?
@@ -1083,7 +1098,7 @@ We have provided solutions for the UI, which are [components-ui-pixi](/packages/
         anchor={{ x: 1, y: 0 }}
         text="ADD YOUR LOGO"
         style={{
-          fontFamily: 'proxima-nova',
+          fontFamily: 'Bangers-Regular',
           fontSize: REM * 1.5,
           fontWeight: '600',
           lineHeight: REM * 2,

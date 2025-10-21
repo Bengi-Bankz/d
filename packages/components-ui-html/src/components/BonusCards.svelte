@@ -67,7 +67,7 @@
 		font-size: 1rem;
 		line-height: 1rem;
 		text-align: center;
-		font-family: 'TradeWinds-Regular', sans-serif;
+		font-family: 'Bangers-Regular', sans-serif;
 	}
 
 	.description {
@@ -77,7 +77,7 @@
 		white-space: pre-line;
 		display: inline-flex;
 		align-items: center;
-		font-family: 'TradeWinds-Regular', sans-serif;
+		font-family: 'Bangers-Regular', sans-serif;
 	}
 
 	.description:empty {

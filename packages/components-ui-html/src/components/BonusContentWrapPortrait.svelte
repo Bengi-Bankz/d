@@ -82,8 +82,13 @@
 		flex-direction: column;
 		align-items: center;
 		gap: 1rem;
-
 		transform-origin: center center;
+
+		@media (max-width: 700px) and (orientation: portrait) {
+			flex-direction: column !important;
+			align-items: stretch !important;
+			gap: 0.7rem !important;
+		}
 	}
 
 	.badge-amount-wrap-scaled {

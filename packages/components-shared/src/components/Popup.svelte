@@ -66,7 +66,7 @@
 
 <style lang="scss">
 	.pop-up-wrap {
-		font-family: 'proxima-nova', sans-serif;
+		font-family: 'Bangers-Regular', sans-serif;
 		touch-action: manipulation;
 		color: white;
 		position: fixed;
