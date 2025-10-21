@@ -7,7 +7,10 @@
 
 // Granular modal & pop-up responsiveness for smallest screens
 @media (max-width: 350px), (max-height: 400px) {
-	.pop-up-wrap, .ui-popup-standard-content-wrap, .bet-menu-scroll, .content.scrollY {
+	.pop-up-wrap,
+	.ui-popup-standard-content-wrap,
+	.bet-menu-scroll,
+	.content.scrollY {
 		max-width: 98vw !important;
 		max-height: 98vh !important;
 		padding: 2vw 1vw !important;
@@ -26,7 +29,8 @@
 		padding: 1vw !important;
 		gap: 0.5rem !important;
 	}
-	.bet-menu-scroll, .content.scrollY {
+	.bet-menu-scroll,
+	.content.scrollY {
 		max-height: 60vh !important;
 		padding: 0.5rem 0.25rem !important;
 		gap: 0.5rem !important;
@@ -36,7 +40,10 @@
 		width: 2rem !important;
 		height: 2rem !important;
 	}
-	button, .btn-hard-outline, .ButtonGlow, .BaseButtonWrap button {
+	button,
+	.btn-hard-outline,
+	.ButtonGlow,
+	.BaseButtonWrap button {
 		font-size: 0.9rem !important;
 		padding: 0.4rem 0.7rem !important;
 		min-width: 0 !important;
