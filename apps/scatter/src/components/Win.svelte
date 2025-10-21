@@ -8,6 +8,18 @@
 </script>
 
 <script lang="ts">
+	// Responsive font size for count-up text
+	function getResponsiveFontSize(winLevelData) {
+		// Use smaller font for bonus end win
+		if (winLevelData?.alias === 'bonusend') {
+			return SYMBOL_SIZE * 0.55;
+		}
+		const isPortrait = window.innerHeight > window.innerWidth;
+		if (isPortrait && window.innerWidth < 700) {
+			return SYMBOL_SIZE * 0.85;
+		}
+		return SYMBOL_SIZE * 0.75;
+	}
 	import { Container } from 'pixi-svelte';
 	import { FadeContainer, WinCountUpProvider, ResponsiveBitmapText } from 'components-pixi';
 	import { waitForResolve, waitForTimeout } from 'utils-shared/wait';
@@ -71,7 +83,7 @@
 									text={bookEventAmountToCurrencyString(countUpAmount)}
 									style={{
 										fontFamily: 'MoneyFont3',
-										fontSize: SYMBOL_SIZE * 3.6,
+										fontSize: getResponsiveFontSize(winLevelData),
 										align: 'center',
 										fontWeight: 'bold',
 										letterSpacing: 0,
@@ -86,7 +98,7 @@
 								text={bookEventAmountToCurrencyString(countUpAmount)}
 								style={{
 									fontFamily: 'MoneyFont3',
-									fontSize: SYMBOL_SIZE,
+									fontSize: getResponsiveFontSize(winLevelData),
 									align: 'center',
 									fontWeight: 'bold',
 									letterSpacing: 0,
