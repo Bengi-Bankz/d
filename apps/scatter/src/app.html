@@ -3,7 +3,9 @@
 	<head>
 		<meta charset="utf-8" />
 		<style>
-			body.font-loading { visibility: hidden; }
+			body.font-loading {
+				visibility: hidden;
+			}
 		</style>
 		<link rel="icon" href="%sveltekit.assets%/favicon.svg" />
 		<link rel="stylesheet" href="./app.css" />
@@ -22,13 +24,16 @@
 			// Hide body until font is loaded
 			document.body.classList.add('font-loading');
 			const font = new FontFace('BungeeSpice-Regular', 'url(./BungeeSpice-Regular.ttf)');
-			font.load().then(function(loadedFont) {
-				document.fonts.add(loadedFont);
-				document.body.classList.remove('font-loading');
-			}).catch(function() {
-				// If font fails to load, still show the page
-				document.body.classList.remove('font-loading');
-			});
+			font
+				.load()
+				.then(function (loadedFont) {
+					document.fonts.add(loadedFont);
+					document.body.classList.remove('font-loading');
+				})
+				.catch(function () {
+					// If font fails to load, still show the page
+					document.body.classList.remove('font-loading');
+				});
 		</script>
 		<div>%sveltekit.body%</div>
 	</body>
