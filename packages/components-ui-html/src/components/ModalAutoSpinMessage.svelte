@@ -7,6 +7,7 @@
 	import BaseTitle from './BaseTitle.svelte';
 	import BaseScrollable from './BaseScrollable.svelte';
 	import { i18nDerived } from '../i18n/i18nDerived';
+import ButtonGlow from './ButtonGlow.svelte';
 
 	const messageMap = $derived({
 		lossLimitReached: i18nDerived.lossLimitReached(),
@@ -16,19 +17,32 @@
 </script>
 
 {#if stateModal.modal?.name === 'autoSpinMessage'}
-	<Popup zIndex={zIndex.modal} onclose={() => (stateModal.modal = null)}>
-		<BaseContent maxWidth="100%">
-			<BaseTitle>
-				{i18nDerived.notification()}
-			</BaseTitle>
-			<BaseScrollable type="column">
-				<span class="text" data-test="auto-spin-stop-info">{i18nDerived.autoSpinsStopInfo()}</span>
-				<div class="scrollY info-text" data-test="auto-spin-stop-content">
-					{messageMap[stateModal.modal.message]}
-				</div>
-			</BaseScrollable>
-		</BaseContent>
-	</Popup>
+ <Popup zIndex={zIndex.modal} onclose={() => (stateModal.modal = null)}>
+  <BaseContent maxWidth="100%">
+   <BaseTitle>
+	{i18nDerived.notification()}
+   </BaseTitle>
+   <BaseScrollable type="column">
+	<span class="text" data-test="auto-spin-stop-info">{i18nDerived.autoSpinsStopInfo()}</span>
+	<div class="scrollY info-text" data-test="auto-spin-stop-content">
+	 {messageMap[stateModal.modal.message]}
+	</div>
+   </BaseScrollable>
+   <div style="margin-top: 2rem; text-align: center;">
+	<ButtonGlow
+	 variant="blue"
+	 size="large"
+	 shape="pill"
+	 onclick={() => {
+	  stateModal.modal = null;
+	  window.location.reload();
+	 }}
+	>
+	 {@html 'Refresh Game'}
+	</ButtonGlow>
+   </div>
+  </BaseContent>
+ </Popup>
 {/if}
 
 <style lang="scss">
