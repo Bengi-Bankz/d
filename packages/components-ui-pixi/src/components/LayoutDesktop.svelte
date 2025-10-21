@@ -32,7 +32,7 @@
 			{@render props.amountBet({ stacked: true })}
 		</Container>
 
-		<Container y={DESKTOP_BASE_SIZE * 0.5 - 905} x={1550} scale={0.9}>
+		<Container y={DESKTOP_BASE_SIZE * 0.5 - 905} x={1570} scale={0.9}>
 			{@render props.amountBalance({ stacked: true })}
 		</Container>
 
