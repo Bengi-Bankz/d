@@ -1098,7 +1098,7 @@ We have provided solutions for the UI, which are [components-ui-pixi](/packages/
         anchor={{ x: 1, y: 0 }}
         text="ADD YOUR LOGO"
         style={{
-          fontFamily: 'Bangers-Regular',
+          fontFamily: 'BungeeSpice-Regular',
           fontSize: REM * 1.5,
           fontWeight: '600',
           lineHeight: REM * 2,

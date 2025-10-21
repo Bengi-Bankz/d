@@ -73,7 +73,7 @@
 				align: 'center',
 				wordWrap: true,
 				wordWrapWidth: 200,
-				fontFamily: 'Bangers-Regular',
+				fontFamily: 'BungeeSpice-Regular',
 				fontWeight: '600',
 				fontSize: UI_BASE_FONT_SIZE * 0.9,
 				fill: 0xffffff,

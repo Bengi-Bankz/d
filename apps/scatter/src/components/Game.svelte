@@ -162,7 +162,7 @@ const dispatch = createEventDispatcher();
             anchor={{ x: 1, y: 0 }}
             text="Only Spins Studios"
             style={{
-              fontFamily: 'Bangers-Regular',
+              fontFamily: 'BungeeSpice-Regular',
               fontWeight: '600',
             }}
           />

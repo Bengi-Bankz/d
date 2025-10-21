@@ -35,7 +35,7 @@
    .button {
 	   width: 100%;
 	   position: relative;
-	   font-family: "Bangers-Regular", sans-serif;
+	   font-family: "BungeeSpice-Regular", sans-serif;
 	   cursor: pointer;
 	   display: inline-flex;
 	   justify-content: center;
