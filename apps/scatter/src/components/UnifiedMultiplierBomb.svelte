@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { Tween } from 'svelte/motion';
-	import { Container, Sprite, BitmapText } from 'pixi-svelte';
+	import { Container, Sprite, BitmapText, SpineProvider, SpineTrack } from 'pixi-svelte';
 	import { waitForTimeout } from 'utils-shared/wait';
 	import { stateBetDerived } from 'state-shared';
 	
@@ -23,10 +23,11 @@
 	
 	// State management
 	let phase = $state<BombPhase>('hidden');
+	let animationName = $state('static');
 	let showMultiplierText = $state(false); // HIDDEN until tick-up phase
 	let currentTickValue = $state(1); // Start ticking from 1
 	let assetError = false; // Define assetError to prevent ReferenceError
-let assetLoaded = true; // Assume asset is loaded for now; update logic as needed
+	let assetLoaded = true; // Assume asset is loaded for now; update logic as needed
 	
 	// Animation tweens
 	const scale = new Tween(0);
@@ -150,17 +151,10 @@ let assetLoaded = true; // Assume asset is loaded for now; update logic as neede
 	
 	const playExplodingAnimation = async () => {
 		phase = 'exploding';
-		
-		// Hold for a moment to show final value
+		animationName = 'explosion';
 		await waitForTimeout(500 / stateBetDerived.timeScale());
-		
-		// Final explosion as it already does
 		context.eventEmitter?.broadcast({ type: 'soundOnce', name: 'sfx_multiplier_explosion_a' });
-		await Promise.all([
-			scale.set(3.0, { duration: 400 / stateBetDerived.timeScale() }),
-			rotation.set(Math.PI * 0.25, { duration: 400 / stateBetDerived.timeScale() }),
-			textScale.set(1.8, { duration: 400 / stateBetDerived.timeScale() })
-		]);
+		await waitForTimeout(600 / stateBetDerived.timeScale());
 	};
 </script>
 
@@ -174,34 +168,46 @@ let assetLoaded = true; // Assume asset is loaded for now; update logic as neede
     </div>
 {:else}
     <Container x={props.x} y={props.y}>
-		{#if phase !== 'hidden' && phase !== 'complete'}
-			<Container scale={scale.current} rotation={rotation.current}>
-				<!-- Main bomb sprite - ALL USE SAME STATIC SYMBOL -->
-				<Sprite
-					key={currentSprite()}
-					anchor={0.5}
-					scale={0.8}
-					x={0}
-					y={0}
-				/>
-				
-				<!-- Multiplier text - HIDDEN until tickingUp phase, uses purple font -->
-				{#if showMultiplierText}
-					<Container scale={textScale.current}>
-						<BitmapText
-							anchor={0.5}
-							x={0}
-							y={0}
-							text={`${currentTickValue}X`}
-							style={{
-								fontFamily: 'purple',
-								fontSize: SYMBOL_SIZE * 0.3,
-								letterSpacing: -2,
-							}}
-						/>
-					</Container>
-				{/if}
-			</Container>
-		{/if}
-	</Container>
+        {#if phase !== 'hidden' && phase !== 'complete'}
+            {#if phase === 'exploding'}
+                <SpineProvider
+                    x={0}
+                    y={0}
+                    width={SYMBOL_SIZE * 2}
+                    key="explosion"
+                >
+                    <SpineTrack
+                        trackIndex={0}
+                        animationName={animationName}
+                        timeScale={stateBetDerived.timeScale()}
+                    />
+                </SpineProvider>
+            {:else}
+                <Container scale={scale.current} rotation={rotation.current}>
+                    <Sprite
+                        key={currentSprite()}
+                        anchor={0.5}
+                        scale={0.8}
+                        x={0}
+                        y={0}
+                    />
+                    {#if showMultiplierText}
+                        <Container scale={textScale.current}>
+                            <BitmapText
+                                anchor={0.5}
+                                x={0}
+                                y={0}
+                                text={`${currentTickValue}X`}
+                                style={{
+                                    fontFamily: 'purple',
+                                    fontSize: SYMBOL_SIZE * 0.3,
+                                    letterSpacing: -2,
+                                }}
+                            />
+                        </Container>
+                    {/if}
+                </Container>
+            {/if}
+        {/if}
+    </Container>
 {/if}
