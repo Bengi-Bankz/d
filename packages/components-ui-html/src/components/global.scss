@@ -4,6 +4,46 @@
 		max-height: 140px;
 	}
 }
+
+// Granular modal & pop-up responsiveness for smallest screens
+@media (max-width: 350px), (max-height: 400px) {
+	.pop-up-wrap, .ui-popup-standard-content-wrap, .bet-menu-scroll, .content.scrollY {
+		max-width: 98vw !important;
+		max-height: 98vh !important;
+		padding: 2vw 1vw !important;
+		box-sizing: border-box;
+		overflow-y: auto !important;
+		overflow-x: hidden !important;
+		border-radius: 10px !important;
+	}
+	.pop-up-wrap {
+		align-items: flex-start !important;
+		justify-content: flex-start !important;
+		min-height: 0 !important;
+		min-width: 0 !important;
+	}
+	.ui-popup-standard-content-wrap {
+		padding: 1vw !important;
+		gap: 0.5rem !important;
+	}
+	.bet-menu-scroll, .content.scrollY {
+		max-height: 60vh !important;
+		padding: 0.5rem 0.25rem !important;
+		gap: 0.5rem !important;
+	}
+	.close-button {
+		font-size: 2rem !important;
+		width: 2rem !important;
+		height: 2rem !important;
+	}
+	button, .btn-hard-outline, .ButtonGlow, .BaseButtonWrap button {
+		font-size: 0.9rem !important;
+		padding: 0.4rem 0.7rem !important;
+		min-width: 0 !important;
+		min-height: 0 !important;
+		border-radius: 0.7rem !important;
+	}
+}
 .btn-hard-outline {
 	border-width: 4px;
 	border-color: #2563eb; /* blue-600 */
