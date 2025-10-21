@@ -50,11 +50,6 @@ export default {
 		src: new URL('../../assets/sprites/backgrounds/bg3.webp', import.meta.url).href,
 		preload: true,
 	},
-	bg4: {
-		type: 'sprite',
-		src: new URL('../../assets/sprites/backgrounds/bg4.webp', import.meta.url).href,
-		preload: true,
-	},
 	loader: {
 		type: 'spine',
 		src: {
@@ -70,12 +65,6 @@ export default {
 			.href,
 		preload: true,
 	},
-	ui: {
-		type: 'sprites',
-		src: new URL('../../assets/sprites/ui/ui.webp.json', import.meta.url).href,
-		preload: true,
-	},
-
 	H1: {
 		type: 'spine',
 		src: {
@@ -400,9 +389,10 @@ export default {
 		src: new URL('../../assets/audio/sounds.json', import.meta.url).href,
 		preload: true,
 	},
+
 	progressBar: {
-		type: 'sprite',
-		src: new URL('../../assets/spines/progressBar/progressBar.webp.json', import.meta.url).href,
+		type: 'sprites',
+		src: new URL('../../assets/sprites/progressBar/progressBar.json', import.meta.url).href,
 		preload: true,
 	},
 } as const;

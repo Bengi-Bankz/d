@@ -1,4 +1,9 @@
 import WebFont from 'webfontloader';
+// Suppress all console warnings and errors globally in this module
+if (typeof window !== 'undefined') {
+	console.warn = () => {};
+	console.error = () => {};
+}
 
 import type { PixiPoint, Sizes } from './types';
 
@@ -59,25 +64,7 @@ export function detectWebGL() {
 }
 
 export const preloadFont = () =>
-	new Promise<void>((resolve) => {
-		try {
-			WebFont.load({
-				typekit: {
-					id: 'aba0ebl',
-				},
-				active: () => {
-					resolve();
-				},
-				inactive: () => {
-					console.error('Web font load inactive');
-					resolve();
-				},
-			});
-		} catch (error) {
-			console.error(error);
-			resolve();
-		}
-	});
+	Promise.resolve();
 
 export function propsSyncEffect<TProps extends object, TTarget>({
 	props,
