@@ -166,6 +166,10 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 		await eventEmitter.broadcastAsync({ type: 'uiShow' });
 		await eventEmitter.broadcastAsync({ type: 'drawerUnfold' });
 		eventEmitter.broadcast({ type: 'drawerButtonHide' });
+		// FIX: Reset bet mode to BASE after bonus round ends
+		if (typeof stateBet !== 'undefined' && stateBet.activeBetModeKey !== undefined) {
+			stateBet.activeBetModeKey = 'BASE';
+		}
 	},
 	boardMultiplierInfo: async (bookEvent: BookEventOfType<'boardMultiplierInfo'>) => {
 		eventEmitter.broadcast({ type: 'tumbleWinAmountShow' });
