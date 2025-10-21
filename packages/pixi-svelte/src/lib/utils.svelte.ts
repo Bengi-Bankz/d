@@ -63,8 +63,7 @@ export function detectWebGL() {
 	return -1;
 }
 
-export const preloadFont = () =>
-	Promise.resolve();
+export const preloadFont = () => Promise.resolve();
 
 export function propsSyncEffect<TProps extends object, TTarget>({
 	props,
