@@ -153,55 +153,52 @@
 
 					<section>
 						<h3>Bonus Features</h3>
-						<p>The bonus round is triggered by scatter symbols:</p>
-						<ul>
-							<li>
-								4 Scatters → 8 Did Not Inhale Spins
-								<div class="bonus-images">
-									<div class="scatter-row">
-										{#each Array(4) as _, i}
-											<img src={img1} alt="Scatter symbol {i + 1}" />
-										{/each}
+						<div class="paytable-modal-outer" style="background:none;position:static;width:auto;height:auto;box-shadow:none;">
+							<div class="paytable-modal-inner" style="box-shadow:none;max-width:100%;width:100%;padding:0;">
+								<div class="paytable-section">
+									<h3>Did Not Inhale Spins</h3>
+									<div class="bonus-images">
+										<div class="scatter-row">
+											{#each Array(4) as _, i}
+												<img src={img1} alt="Scatter symbol {i + 1}" />
+											{/each}
+										</div>
+										<div class="bonus-row">
+											<img src={img26} alt="Did Not Inhale Spins" />
+										</div>
 									</div>
-									<div class="bonus-row">
-										<img src={img26} alt="Did Not Inhale Spins" />
-									</div>
+									<div class="paytable-desc" style="font-size:1.25rem;">Trigger: Land 4 scatter symbols<br>Free Spins: 8<br>Purchase Amount: <b>100×</b><br><br>Take your shot at the bonus round with a lighthearted twist! Landing 4 scatters awards Did Not Inhale Spins, giving you a batch of free spins with boosted win potential. Watch the reels heat up as bonus symbols stack and multipliers rise — your chance to spin your way toward that massive 10,000× max award begins here.</div>
 								</div>
-								<p style="margin-top:8px; color:#fff;">Take your shot at the bonus round with a lighthearted twist! Landing 4 scatters awards Did Not Inhale Spins, giving you a batch of free spins with boosted win potential. Watch the reels heat up as bonus symbols stack and multipliers rise — your chance to spin your way toward that massive 10,000× max award begins here.</p>
-							</li>
-							<li>
-								5 Scatters → 10 Honest Abe Spins
-								<div class="bonus-images">
-									<div class="scatter-row">
-										{#each Array(5) as _, i}
-											<img src={img1} alt="Scatter symbol {i + 1}" />
-										{/each}
+								<div class="paytable-section">
+									<h3>Honest Abe Spins</h3>
+									<div class="bonus-images">
+										<div class="scatter-row">
+											{#each Array(5) as _, i}
+												<img src={img1} alt="Scatter symbol {i + 1}" />
+											{/each}
+										</div>
+										<div class="bonus-row">
+											<img src={img24} alt="Honest Abe Spins" />
+										</div>
 									</div>
-									<div class="bonus-row">
-										<img src={img24} alt="Honest Abe Spins" />
-									</div>
+									<div class="paytable-desc" style="font-size:1.25rem;">Trigger: Land 5 scatter symbols<br>Free Spins: 10<br>Purchase Amount: <b>200×</b><br><br>Honesty is the key! Hit 5 scatters to unlock Honest Abe Spins, where the rewards climb even higher. More spins, better odds, and an extra chance for huge multipliers on top-winning combinations. Every spin could bring you closer to the game’s ultimate 10,000× Award cap — stay true, and let the reels deliver.</div>
 								</div>
-								<p style="margin-top:8px; color:#fff;">Honesty is the key! Hit 5 scatters to unlock Honest Abe Spins, where the rewards climb even higher. More spins, better odds, and an extra chance for huge multipliers on top-winning combinations. Every spin could bring you closer to the game’s ultimate 10,000× Award cap — stay true, and let the reels deliver.</p>
-							</li>
-							<li>
-								6 Scatters → 12 Osama Killer Spins
-								<div class="bonus-images">
-									<div class="scatter-row">
-										{#each Array(6) as _, i}
-											<img src={img1} alt="Scatter symbol {i + 1}" />
-										{/each}
+								<div class="paytable-section">
+									<h3>Osama Killer Spins</h3>
+									<div class="bonus-images">
+										<div class="scatter-row">
+											{#each Array(6) as _, i}
+												<img src={img1} alt="Scatter symbol {i + 1}" />
+											{/each}
+										</div>
+										<div class="bonus-row">
+											<img src={img25} alt="Osama Killer Spins" />
+										</div>
 									</div>
-									<div class="bonus-row">
-										<img src={img25} alt="Osama Killer Spins" />
-									</div>
+									<div class="paytable-desc" style="font-size:1.25rem;">Trigger: Land 6 scatter symbols<br>Free Spins: 12<br>Purchase Amount: <b>500×</b><br><br>The top-tier bonus for the bold! Land 6 scatters to trigger Osama Killer Spins, the most powerful feature in the game. Packed with enhanced multipliers and maximum spin potential, this round delivers explosive win opportunities with every reel. Reach for that 10,000× max award — it’s the ultimate victory spin!</div>
 								</div>
-								<p style="margin-top:8px; color:#fff;">The top-tier bonus for the bold! Land 6 scatters to trigger Osama Killer Spins, the most powerful feature in the game. Packed with enhanced multipliers and maximum spin potential, this round delivers explosive win opportunities with every reel. Reach for that 10,000× max award — it’s the ultimate victory spin!</p>
-							</li>
-						</ul>
-						<p>
-							Players can also purchase direct entry into the bonus feature
-							for <b>200×</b>.
-						</p>
+							</div>
+						</div>
 					</section>
 
 					<section>
