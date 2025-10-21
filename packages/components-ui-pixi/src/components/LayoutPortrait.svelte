@@ -19,20 +19,18 @@
 
 <MainContainer standard alignVertical="bottom">
 
-	<Container
-		x={context.stateLayoutDerived.canvasSizes().width - 160}
-		y={1620}
-		scale={1.2}
-	>
-	{@render props.amountBalance({ stacked: false })}
-	</Container>
 
-	<Container
-		x={context.stateLayoutDerived.canvasSizes().width + 190}
-		y={1620}
-		scale={1.2}
-	>
-	{@render props.amountBet({ stacked: false })}
+	<!-- Amount Balance and Amount Bet: stacked vertically, but with different x offsets -->
+	<Container>
+		<!-- Amount Balance (left) -->
+		<Container x={context.stateLayoutDerived.canvasSizes().width - 220} y={1410} scale={1.2}>
+			{@render props.amountBalance({ stacked: true })}
+		</Container>
+
+		<!-- Amount Bet (right) -->
+		<Container x={context.stateLayoutDerived.canvasSizes().width + 150} y={1410} scale={1.2}>
+			{@render props.amountBet({ stacked: true })}
+		</Container>
 	</Container>
 
 	<Container

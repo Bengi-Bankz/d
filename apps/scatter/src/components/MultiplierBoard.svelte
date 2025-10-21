@@ -133,7 +133,7 @@
 			{#if bomb.isActive}
 				{#if bomb.showBackdrop}
 					<Sprite 
-						key="multitick"
+						key="trashcan"
 						x={bomb.x}
 						y={bomb.y}
 						anchor={{ x: 0.5, y: 0.5 }}
