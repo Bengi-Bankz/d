@@ -21,19 +21,7 @@
 			console.info = () => {};
 			console.debug = () => {};
 
-			// Hide body until font is loaded
-			document.body.classList.add('font-loading');
-			const font = new FontFace('BungeeSpice-Regular', 'url(./BungeeSpice-Regular.ttf)');
-			font
-				.load()
-				.then(function (loadedFont) {
-					document.fonts.add(loadedFont);
-					document.body.classList.remove('font-loading');
-				})
-				.catch(function () {
-					// If font fails to load, still show the page
-					document.body.classList.remove('font-loading');
-				});
+			// Font loading handled by CSS @font-face
 		</script>
 		<div>%sveltekit.body%</div>
 	</body>

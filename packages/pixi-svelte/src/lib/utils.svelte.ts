@@ -1,4 +1,4 @@
-import WebFont from 'webfontloader';
+// WebFont import removed
 // Suppress all console warnings and errors globally in this module
 if (typeof window !== 'undefined') {
 	console.warn = () => {};
